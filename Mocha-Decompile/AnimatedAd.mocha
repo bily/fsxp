@@ -1,0 +1,243 @@
+/* Decompiled by Mocha from AnimatedAd.class */
+/* Originally compiled from AnimatedAd.java */
+
+import java.awt.*;
+import java.applet.Applet;
+import java.applet.AppletContext;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Random;
+
+public class AnimatedAd extends Applet implements Runnable
+{
+    Thread runner;
+    static final int MAX_NUM_STRINGS = 10;
+    static final int MAX_NUM_COLORS = 10;
+    static final int MAX_NUM_FONTS = 5;
+    static final int MAX_NUM_FONT_STYLES = 4;
+    static final int MAX_NUM_FONT_SIZES = 5;
+    Color color[];
+    String fontName[];
+    int fontStyle[];
+    int fontSize[];
+    String adString[];
+    String currentString;
+    int numStringsSupplied;
+    String finalStringToDisplay;
+    int finalStringX;
+    int finalStringY;
+    String finalStringFont;
+    int finalStringFontSize;
+    int finalStringFontStyle;
+    Color finalStringFontColor;
+    int stringPauseTime;
+    int finalStringPauseTime;
+    int stringLoopCount;
+    int minX;
+    int maxX;
+    int minY;
+    int maxY;
+    String urlString;
+    Color bgColor;
+    int currentX;
+    int currentY;
+    Color currentColor;
+    Font currentFont;
+    int seed;
+    static final int seedM = 233280;
+    static final int seedA = 9301;
+    static final int seedC = 49297;
+    int lastRandomValue;
+
+    public void init()
+    {
+        super.init();
+        setLayout(null);
+        addNotify();
+        resize(468, 60);
+        urlString = GetAppletParameter.toString(this, "TARGET_URL", "/");
+        bgColor = GetAppletParameter.toColor(this, "BG_COLOR", Color.white);
+        adString[0] = GetAppletParameter.toString(this, "STRING1", "");
+        adString[1] = GetAppletParameter.toString(this, "STRING2", "");
+        adString[2] = GetAppletParameter.toString(this, "STRING3", "");
+        adString[3] = GetAppletParameter.toString(this, "STRING4", "");
+        adString[4] = GetAppletParameter.toString(this, "STRING5", "");
+        adString[5] = GetAppletParameter.toString(this, "STRING6", "");
+        adString[6] = GetAppletParameter.toString(this, "STRING7", "");
+        adString[7] = GetAppletParameter.toString(this, "STRING8", "");
+        adString[8] = GetAppletParameter.toString(this, "STRING9", "");
+        adString[9] = GetAppletParameter.toString(this, "STRING10", "");
+        numStringsSupplied = numStringsUsed(adString);
+        minX = GetAppletParameter.toInt(this, "MIN_X", 10);
+        maxX = GetAppletParameter.toInt(this, "MAX_X", 400);
+        minY = GetAppletParameter.toInt(this, "MIN_Y", 20);
+        maxY = GetAppletParameter.toInt(this, "MAX_Y", 55);
+        String defaultFont = GetAppletParameter.toString(this, "FONT_DEFAULT", "Helvetica");
+        fontName[0] = GetAppletParameter.toString(this, "FONT1", defaultFont);
+        fontName[1] = GetAppletParameter.toString(this, "FONT2", defaultFont);
+        fontName[2] = GetAppletParameter.toString(this, "FONT3", defaultFont);
+        fontName[3] = GetAppletParameter.toString(this, "FONT4", defaultFont);
+        fontName[4] = GetAppletParameter.toString(this, "FONT5", defaultFont);
+        int defaultFontStyle = GetAppletParameter.toInt(this, "FONT_DEFAULT_STYLE", 0);
+        fontStyle[0] = GetAppletParameter.toInt(this, "FONT_STYLE1", defaultFontStyle);
+        fontStyle[1] = GetAppletParameter.toInt(this, "FONT_STYLE2", defaultFontStyle);
+        fontStyle[2] = GetAppletParameter.toInt(this, "FONT_STYLE3", defaultFontStyle);
+        fontStyle[3] = GetAppletParameter.toInt(this, "FONT_STYLE4", defaultFontStyle);
+        int defaultFontSize = GetAppletParameter.toInt(this, "FONT_DEFAULT_SIZE", 16);
+        fontSize[0] = GetAppletParameter.toInt(this, "FONT_SIZE1", defaultFontSize);
+        fontSize[1] = GetAppletParameter.toInt(this, "FONT_SIZE2", defaultFontSize);
+        fontSize[2] = GetAppletParameter.toInt(this, "FONT_SIZE3", defaultFontSize);
+        fontSize[3] = GetAppletParameter.toInt(this, "FONT_SIZE4", defaultFontSize);
+        fontSize[4] = GetAppletParameter.toInt(this, "FONT_SIZE5", defaultFontSize);
+        Color defaultColor = GetAppletParameter.toColor(this, "COLOR_DEFAULT", Color.blue);
+        color[0] = GetAppletParameter.toColor(this, "COLOR1", defaultColor);
+        color[1] = GetAppletParameter.toColor(this, "COLOR2", defaultColor);
+        color[2] = GetAppletParameter.toColor(this, "COLOR3", defaultColor);
+        color[3] = GetAppletParameter.toColor(this, "COLOR4", defaultColor);
+        color[4] = GetAppletParameter.toColor(this, "COLOR5", defaultColor);
+        color[5] = GetAppletParameter.toColor(this, "COLOR6", defaultColor);
+        color[6] = GetAppletParameter.toColor(this, "COLOR7", defaultColor);
+        color[7] = GetAppletParameter.toColor(this, "COLOR8", defaultColor);
+        color[8] = GetAppletParameter.toColor(this, "COLOR9", defaultColor);
+        color[9] = GetAppletParameter.toColor(this, "COLOR10", defaultColor);
+        finalStringToDisplay = GetAppletParameter.toString(this, "FINAL_STRING", "");
+        finalStringX = GetAppletParameter.toInt(this, "FINAL_STRING_X", 130);
+        finalStringY = GetAppletParameter.toInt(this, "FINAL_STRING_Y", 35);
+        finalStringFont = GetAppletParameter.toString(this, "FINAL_STRING_FONT", "Helvetica");
+        finalStringFontSize = GetAppletParameter.toInt(this, "FINAL_STRING_FONT_SIZE", 20);
+        finalStringFontStyle = GetAppletParameter.toInt(this, "FINAL_STRING_FONT_STYLE", 1);
+        finalStringFontColor = GetAppletParameter.toColor(this, "FINAL_STRING_FONT_COLOR", Color.blue);
+        stringPauseTime = GetAppletParameter.toInt(this, "STRING_PAUSE_TIME", 400);
+        finalStringPauseTime = GetAppletParameter.toInt(this, "FINAL_STRING_PAUSE_TIME", 2500);
+        stringLoopCount = GetAppletParameter.toInt(this, "STRING_LOOP_COUNT", 15);
+        setBackground(bgColor);
+    }
+
+    public void start()
+    {
+        if (runner == null)
+        {
+            runner = new Thread(this);
+            runner.start();
+        }
+    }
+
+    public void stop()
+    {
+        if (runner != null)
+        {
+            runner.stop();
+            runner = null;
+        }
+    }
+
+    public void run()
+    {
+        int i;
+        int rc;
+        int rf;
+        int rfst;
+        int rfsi;
+        int as;
+        while (true)
+        {
+            for (i = 0; i < stringLoopCount; i++)
+            {
+                currentX = getRandomInt(minX, maxX);
+                currentY = getRandomInt(minY, maxY);
+                rc = getRandomInt(0, 9);
+                rf = getRandomInt(0, 4);
+                rfst = getRandomInt(0, 3);
+                rfsi = getRandomInt(0, 4);
+                as = getRandomInt(0, numStringsSupplied - 1);
+                currentString = adString[as];
+                currentColor = color[rc];
+                currentFont = new Font(fontName[rf], fontStyle[rfst], fontSize[rfsi]);
+                repaint();
+                pause(stringPauseTime);
+                currentColor = bgColor;
+                repaint();
+                pause(stringPauseTime);
+            }
+            currentString = finalStringToDisplay;
+            currentX = finalStringX;
+            currentY = finalStringY;
+            currentColor = finalStringFontColor;
+            currentFont = new Font(finalStringFont, finalStringFontStyle, finalStringFontSize);
+            repaint();
+            pause(finalStringPauseTime);
+            currentColor = bgColor;
+            repaint();
+        }
+    }
+
+    public boolean mouseDown(Event ev, int x, int y)
+    {
+        try
+        {
+            URL theURL = new URL(urlString);
+            getAppletContext().showDocument(theURL);
+        }
+        catch (MalformedURLException e)
+        {
+        }
+        return true;
+    }
+
+    public void pause(int sleepTime)
+    {
+        try
+        {
+            Thread.sleep((long)sleepTime);
+        }
+        catch (InterruptedException e)
+        {
+        }
+        return;
+    }
+
+    public void drawMyString(String s, int x, int y, Graphics g, Font f, Color c)
+    {
+        g.setFont(f);
+        g.setColor(c);
+        g.drawString(s, x, y);
+    }
+
+    public void paint(Graphics g)
+    {
+        drawMyString(currentString, currentX, currentY, g, currentFont, currentColor);
+    }
+
+    public int numStringsUsed(String stringArray[])
+    {
+        for (int i = 0; i < stringArray.length; i++)
+            if (stringArray[i].equals(""))
+                return i + 1;
+        return stringArray.length;
+    }
+
+    public int getRandomInt(int minValue, int maxValue)
+    {
+        int rv;
+        int time;
+        Random r;
+        for (rv = minValue - 1; rv < minValue || rv == lastRandomValue; rv = Math.round((float)maxValue * r.nextFloat()))
+        {
+            time = (int)System.currentTimeMillis();
+            seed = (seed * 9301 + 49297 + time) % 233280;
+            r = new Random((long)seed);
+        }
+        lastRandomValue = rv;
+        return rv;
+    }
+
+    public AnimatedAd()
+    {
+        color = new Color[10];
+        fontName = new String[5];
+        fontStyle = new int[4];
+        fontSize = new int[5];
+        adString = new String[10];
+        seed = 1;
+    }
+}

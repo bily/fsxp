@@ -1,0 +1,152 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<style>
+BODY, P, DIV, H1, H2, H3, H4, H5, H6, ADDRESS, OL, UL, LI, TITLE, TD, OPTION, SELECT 
+{ 
+ font-family: Verdana 
+}
+BODY, P, DIV, ADDRESS, OL, UL, LI, TITLE, TD, OPTION, SELECT  
+{  
+  font-size: 10.0pt; 
+  margin-top:0pt;  
+  margin-bottom:0pt;  
+} 
+BODY, P
+{
+  margin-left:0pt; 
+  margin-right:0pt;
+}
+BODY
+{
+  background: white;
+  margin: 6px;
+  padding: 0px;
+}
+h6 { font-size: 10pt }
+h5 { font-size: 11pt }
+h4 { font-size: 12pt }
+h3 { font-size: 13pt }
+h2 { font-size: 14pt }
+h1 { font-size: 16pt }
+blockquote { padding: 10px; border: 1px #DDDDDD dashed }
+a img {	border: 0; }
+table.zeroBorder {
+	border-width: 1px 1px 1px 1px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+table.zeroBorder th {
+	border-width: 1px 1px 1px 1px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+table.zeroBorder td {
+	border-width: 1px 1px 1px 1px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+.hiddenStyle {
+		visibility: hidden; 
+		position: absolute;
+		z-Index: 1;
+		paddingRight: 0;
+		background: white
+	}
+.misspell { background-image: url('/images/misspell.gif'); background-repeat: repeat-x; background-position: bottom }
+@media screen {
+.pb { border-top: 1px dashed #C0C0C0; border-bottom: 1px dashed #C0C0C0 }
+.writely-comment { font-size: 9pt; line-height: 1.4em; padding: 1px; border: 1px dashed #C0C0C0 }
+}
+@media print {
+.pb { border-top: 0px; border-bottom: 0px }
+.writely-comment { display: none }
+}
+@media screen,print {
+.pb { height: 1px }
+}
+.style2 {color: #FF0099}
+.style4 {font-size: 9px}
+</style></head>
+<body revision='app3cngxptz_12gnvw7g:57'>
+<div style="PADDING:8px; BACKGROUND-COLOR:white">
+ <table bgcolor="#663300">
+  <tbody>
+  <tr>
+    <td bgcolor="#CCCCCC">
+        <blockquote>
+          <p><font size=4><span style=FONT-WEIGHT:bold><span class="style2">Topic: Jdec
+            Configuration&nbsp;&nbsp;&nbsp;</span>&nbsp;</span></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="style4">
+            Last Updated by: Swaroop Belur Nov 2006,07<br>
+            </span></p><br>
+          <p><a href="Documentaion.html" target="_self">Main Page</a> </p>
+        </blockquote><br>
+        <br>
+        <blockquote><span style=FONT-WEIGHT:bold>Description:<br>
+        <br>
+        </span><br>
+        <span style="FONT-STYLE:italic; TEXT-DECORATION:underline">Additions for
+        release 1.2</span><br>
+        1. Interpret_Non_ASCII (Default is true)<br>
+        2. Force_Non_ACII&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Default is true)<br>
+        <br>
+        Jdec configuration is meant to provide the end user to configure jdec
+        BEFORE jdec can be used<br>
+        Some of these properties are simple like output directory,log level. But
+        some can be useful.<br>
+        <br>
+        <span style=TEXT-DECORATION:underline><span style=FONT-STYLE:italic>
+        Some parameters to note are:</span><br>
+        <br>
+        </span> 1.Interpret_Non_ASCII -&gt; Instructs jdec engine to either
+        process non-ascii characters or not.<br>
+        2.Force_Non_ACII&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; -&gt; If true instructs
+        jdec engine to process all characters similarly (for a string) when any
+        character is non-ascii.<br>
+        3.Inner_Depth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        -&gt; Instruts jdec engine to process inner classes to a depth indicated
+        by this number<br>
+        [For example if A contains B ,B contains C and Inner_Depth is set to 1
+        then C will not be decompiled]<br>
+        <br>
+        <br>
+        <span style="FONT-STYLE:italic; TEXT-DECORATION:underline">Updating
+        </span><br>
+        <br>
+        1. Click on Config menu-&gt;Jdec(Decompiler)Config to update.<br>
+        2. Double click on any value cell to update.<br>
+        3. Appropriate va;idations throw up a message in case of invalid value.<br>
+        4. Replacing all ***Replace me*** values is best as it is generally one
+        time shot.<br>
+        5. There is no need to update the class file or jar file as you can
+        select a class/jar file.<br>
+        <br>
+        <br>
+        NOTE:<br>
+        1. jdec config options was initially designed keeping the run image
+        button in mind.<br>
+        &nbsp;&nbsp; i.e just set the class file path and other necesary option
+        like output folder.<br>
+        2. However&nbsp; later on some options had to be introduced and need was
+        felt to<br>
+        &nbsp;&nbsp; integrate jdec config with all routes[file-&gt;open,tree
+        click and otheres]&nbsp; to decompile<br>
+        &nbsp;&nbsp; a class file.<br>
+        <br>
+        <br>
+        </blockquote> <blockquote><br>
+        Picture:<br>
+        <br>
+        <br>
+        <img src="jdecconfig.gif"/><br>
+        </blockquote>
+      </td>
+    </tr>
+  </table>
+</div></body>
+</html>

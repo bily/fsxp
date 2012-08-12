@@ -1,0 +1,180 @@
+<places>
+<continent name="Europe">
+
+<country name="Albania">
+<place name="Tirana" lat="41.333302" lon="19.8333" />
+</country>
+<country name="Andorra">
+<place name="Andorra la Vella" lat="42.50637" lon="1.52221" />
+</country>
+<country name="Austria">
+<place name="Vienna" lat="48.20252" lon="16.36878" />
+</country>
+<country name="Belarus">
+<place name="Minsk" lat="53.899811" lon="27.5755" />
+</country>
+<country name="Belgium">
+<place name="Brussels" lat="50.848385" lon="4.349685" />
+</country>
+<country name="Bosnia and Herzegovina">
+<place name="Sarajevo" lat="43.861591" lon="18.42522" />
+</country>
+<country name="Bulgaria">
+<place name="Sofia" lat="42.69708" lon="23.32455" />
+</country>
+<country name="Croatia">
+<place name="Zagreb" lat="45.80636" lon="15.967095" />
+</country>
+<country name="Cyprus">
+<place name="Nicosia" lat="35.167605" lon="33.372847" />
+</country>
+<country name="Czech Republic">
+<place name="Prague" lat="50.079155" lon="14.43299" />
+</country>
+<country name="Denmark">
+<place name="Copenhagen" lat="55.676285" lon="12.56928" />
+</country>
+<country name="England">
+<place name="London" lat="51.506325" lon="-0.127144" />
+<place name="CASA UCL, Torrington Place" lat="51.522" lon="-0.134721" />
+</country>
+<country name="Estonia">
+<place name="Tallinn" lat="59.436356" lon="24.752313" />
+</country>
+<country name="Finland">
+<place name="Helsinki" lat="60.171185" lon="24.93258" />
+</country>
+<country name="France">
+<place name="Paris" lat="48.856925" lon="2.34121" />
+</country>
+<country name="Georgia">
+<place name="Tbilisi" lat="41.721802" lon="44.783131" />
+</country>
+<country name="Germany">
+<place name="Berlin" lat="52.515981" lon="13.377144" />
+</country>
+<country name="Greece">
+<place name="Athens" lat="37.97614" lon="23.736435" />
+</country>
+<country name="Hungary">
+<place name="Budapest" lat="33.715092" lon="-85.218231" />
+</country>
+<country name="Iceland">
+<place name="Reykjavik" lat="64.137383" lon="-21.902479" />
+</country>
+<country name="Ireland">
+<place name="Dublin" lat="53.342997" lon="-6.249971" />
+</country>
+<country name="Italy">
+<place name="Rome" lat="41.90311" lon="12.49576" />
+</country>
+<country name="Latvia">
+<place name="Riga" lat="56.946" lon="24.114905" />
+</country>
+<country name="Liechtenstein">
+<place name="Vaduz" lat="47.137866" lon="9.521866" />
+</country>
+<country name="Lithuania">
+<place name="Vilnius" lat="54.689881" lon="25.269268" />
+</country>
+<country name="Luxembourg">
+<place name="Luxembourg" lat="49.815281" lon="6.1333" />
+</country>
+<country name="Macedonia">
+<place name="Skopje" lat="42.005112" lon="21.44787" />
+</country>
+<country name="Malta">
+<place name="Valletta" lat="28.01627" lon="-82.354347" />
+</country>
+<country name="Moldova">
+<place name="Chisinau" lat="47.026871" lon="28.84156" />
+</country>
+<country name="Monaco">
+<place name="Monaco" lat="43.740449" lon="7.429555" /> 
+</country>
+<country name="Montenegro">
+<place name="Podgorica" lat="42.440899" lon="19.267879" />
+</country>
+<country name="The Netherlands">
+<place name="Amsterdam" lat="52.37312" lon="4.893195" />
+</country>
+<country name="Northern Ireland">
+<place name="Belfast" lat="54.59576" lon="-5.935519" />
+</country>
+<country name="Norway">
+<place name="Oslo" lat="59.91228" lon="10.749975" />
+</country>
+<country name="Poland">
+<place name="Warsaw" lat="52.235315" lon="21.00915" />
+</country>
+<country name="Portugal">
+<place name="Lisbon" lat="38.725595" lon="-9.150397" />
+</country>
+<country name="Romania">
+<place name="Bucharest" lat="44.4342" lon="26.102955" />
+</country>
+<country name="Russian Federation">
+<place name="Moscow" lat="55.75061" lon="37.62767" />
+</country>
+<country name="San Marino">
+<place name="San Marino" lat="43.94273" lon="12.45979" />
+</country>
+<country name="Denmark">
+<place name="Copenhagen" lat="55.676285" lon="12.56928" />
+</country>
+<country name="Scotland">
+<place name="Edinburgh" lat="55.95425" lon="-3.202799" />
+</country>
+<country name="Slovakia">
+<place name="Bratislava" lat="48.149135" lon="17.106995" />
+</country>
+<country name="Slovenia">
+<place name="Ljubljana" lat="46.051244" lon="14.503061" />
+</country>
+<country name="Spain">
+<place name="Madrid" lat="40.4203" lon="-3.705794" />
+</country>
+<country name="Sweden">
+<place name="Stockholm" lat="59.33217" lon="18.062425" />
+</country>
+<country name="Switzerland">
+<place name="Bern" lat="46.94847" lon="7.440555" />
+</country>
+<country name="Ukraine">
+<place name="Kiev" lat="50.44817" lon="30.50211" />
+</country>
+<country name="Wales">
+<place name="Cardiff" lat="51.481225" lon="-3.180869" />
+</country>
+
+</continent>
+
+<continent name="North America">
+<country name="United States">
+<place name="Washington D.C." lat="38.889804" lon="-77.009140" />
+</country>
+</continent>
+
+<continent name="Australasia">
+<country name="Australia">
+<place name="Canberra" lat="-35.342444" lon="149.049127" />
+</country>
+<country name="New Zealand"> 
+<place name="Wellington" lat="-41.312178" lon="174.795422" />
+</country>
+</continent>
+
+<continent name="Africa">
+<country name="South Africa">
+<place name="Cape Town" lat="-33.928156" lon="18.437239" />
+</country>
+</continent>
+
+<continent name="Asia">
+<country name="China">
+<place name="Beijing" lat="40.137022" lon="116.362895" />
+</country>
+</continent>
+
+
+</places>

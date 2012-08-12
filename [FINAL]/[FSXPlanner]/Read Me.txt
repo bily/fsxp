@@ -1,0 +1,514 @@
+Thank you for downloading FSX Planner!
+
+Please read this file for release notes and other important information.
+
+zBlueSoftware is not responsible for any data loss, corruption, or otherwise resulting from use of FSX Planner.
+
+------------------------------------------
+
+FSX Planner and Java
+FSX Planner is a java application.  It required tghat you have Java 1.5 or higher installed on your machine.
+
+If you get the following error:
+"Exception in thread "main" java.lang.UnsupportedClassVersionError: com/zbluesoftware/fsxp/FSXPlanner (Unsupported major.minor version 49.0)"
+then you most likely don't have Java 1.5 installed.  To check this open a command window (Start -> Run; then enter 'cmd') and enter "java -version" (without the quotes).  If the command is not recognized, or you don't have version 1.5 or higher then you need to download and install a newer version.
+
+The latest version of java is available here: http://java.sun.com/javase/downloads/index.jsp.  You should download the Java Runtime Environment (JRE) 6 Update 2.
+
+------------------------------------------
+
+FSX Planner and Windows Vista
+
+Due to Windows Vista's security settings a few of the settings within FSX Planner may not be remembered correctly.  This includes the update functionality, and some of the options in the Find Airport dialog and Compile dialog.  If you are having these issues, then it is suggested that you run FSX Planner by right clicking on the FSX Planner.exe file or shortcut and choosing Run As Administrator.
+
+In addition, in order for the automatic discovery of the port being used by SimConnect to work, FSX Planner nneds to be run using the Run As Administrator command.  If this option is not used, then you will need to specify the exact port and ip address, and use the SimConnect.xml file in order to connect to FSX.
+
+------------------------------------------
+
+Updates in Build 28
+
+* The User Interface has been completely redesigned to set a new standard in FSX airport CAD applications.  The intention is to make FSX Planner a much more user friendly and professional looking application.  There are several new displays within the menus that we hope will make creating your airport easier.  These include the ability to visually select runway types, taxiway types, specific parking locations.  In addition the secondary menu options are now more obvious, such as connecting to FSX, the various plane makes available, etc.  The tool tips have also been significantly expanded so that they are much more of a help option, rather than a simple tool tip.  These enhanced tool tips are shown to help you understand how a tool works, and what it is meant to do.  With all these aspects of the new interface we hope that FSX Planner succeeds in setting a new standard of ease of use, thereby making airport design as fast and easy as possible.
+* You can now rotate the airport display.  To do so hold down the shift key while moving the scroll button on the mouse.  Alternatively you can click on the rotating North icon and enter a specific value in the properites display.
+
+------------------------------------------
+
+Updates in Build 27
+
+* Fixed a bug which created duplicate scenery objects, windsocks, etc, when saving a file that had been created from either decompiling a bgl file that contained more than one airport, or from opening an xml file that contained more than one airport. This bug would manifest itself in xml files that would double in size every time you saved the airport.
+* Taxiway paths can now be highlighted by clicking on the Highlight Taxiway Path button in the Taxiway Path properties display. This option will highlight every taxiway path that has the same name as the currently selected taxiway path.
+* Improved the graphics engine to provide for better performance when scrolling. This varies from about 2x to 10x faster than the previous versions, and is much more apparent at big airports.
+* Improved the graphics engine to allow for clip rectangles to be used when dragging certain items. This provides for approximately a 2x to 4x improvement when dragging these items.  This is more apparent when multiple items are displayed on the screen at once.
+* The open dialog displayed when opening BGL files now returns to the last directory used when it is displayed.
+* The text area in the compile dialog now displays which elements of the airport were included in the BGL file so that you can easily ensure the BGL file contains the appropriate elements.
+* Right click popup menus have been added to all text fields. The popup menu allows you to cut, copy, paste and select all text in the text field.
+* Exclusion Rectangles now save whether or not they should be displayed as a border only or as a full rectangle.
+* Fonts can now be customized by the user via the Fonts tab in the Preferenmces Dialog.  Fonts for the following items can be specified: Menus; the Latitude and Longitude coordinates drawn on the map; the Parking Location descriptions; the Jetway descriptions; the ILS ICAO codes; the Scenery descriptions; the VOR ICAO codes; and the NDB ICAO codes.  Note that font sizes are scaled up or down based upon the current scale of the map.  Data is not displayed if the resulting font size is less than 6 point.
+* Object locking can now be controlled from the object properties display as well as the Object Locking dialog.  Clicking the padlock icon will lock or unlock the object.  If the padlock is locked then the object cannot be moved.  If the padlock is unlocked then the object can be moved.
+* Parking locations are now color coded to their airline code.  If no airline code is associated with the parking location then the default green color is used.  If more than one airline code is associated with a parking location, then the color of the first airline code is used.  A new 'Select' button is now included next to the airline code text field.  Clicking this button displays the airline code chooser.  This chooser can be used to easily select the airline code associated with over 6,000 different airlines.
+* A new object count display is now available.  Selecting Edit -> Display Counts will show a window that displays the current totals of each type of object (aprons, runways, etc). This window is constantly updated whenever a new object is added or removed from the airport, allowing you to easily see the total number of objects being used.
+* Fixed a bug that caused negative altitudes to be incorrectly read from bgl files.
+* There is now an option in the Compile Dialog to create an additional airport elevation bgl file.  This small bgl file is necessary if you change the elevation of the airport. If you select this option, FSX Planner will automatically create the BGL file and place it in the specified folder, which by default is the  Scenery\World\scenery folder within your FSX installation directory.
+
+------------------------------------------
+
+Updates in Build 26
+
+* Parking locations now display the gate name and number, parking location type and airline codes when you zoom in close enough. This make it easy to quickly see if the parking location is assigned correctly without having to select it.
+* Fixed a bug that prevented certain navigation aids, such as NDBs and VORs, as well as certain scenery items such as windsocks, from being properly displayed at some airport.
+* Improved handling of memory during the decompiling process so that less memory is required to decompile the file.
+* Fixed bug which caused memory not to be reclaimed after opening large bgl files.
+* Significantly increased the speed with which stock airports are opened through the Find Airport dialog.
+* The SimConnect functionality has been improved. When connecting to FSX runnning on the same computer as FSX Planneer, the SimConnect.xml file is no longer necessary. FSX Planner will determine the correct port and automatically connect on that port. You still have the choice to use the SimConnect.xml file if you prefer, or if FSX Planner is unable to locate the correct port.  Remote connections still require the use of the SimConnect.xml file. Note that Vista users will need to run FSX Planner using the Run As Administrator option in order for this to work properly.
+
+------------------------------------------
+
+Updates in Build 25
+
+* Fixed some bugs associated with the selection and dragging of the vertices of exclusion rectangles.
+* Exclusion rectangles can now be drawn as just outlines, by selecting the Display Border Only checkbox in the Exclusion Rectangle Data display.  This allows you to have multiple exclusion rectangles over each other and still be able to select and work with all of them.
+* Fixed a bug that caused the helipad closed flag to be incorrectly decompiled from bgl files.
+* Moving an exclusion rectangle is now an undoable event.
+* Improved the display of Helipads to properly show closed, transparency, circles, H, medical and square helipad markings.
+* Adding a fuel trigger, scenery object or ILS beam using the buttons in the object data display now sets the display option for the items (ie fuel triggers, scenery objects or ils beams) to be turned on to ensure you can see the newly created object.
+* After exiting the Background Images dialog, the display flag for background images is now turned on the ensure you can see the background images.
+* Fixed a bug that prevented Runway Fixed Distance marks from being correctly read from and written to the xml files.
+* Fixed a bug that caused meter or feet measurements to be incorrectly changed if you selected Meters from a combobox that was already set to Meters; or Feet from a combobox that wa already set to Feet.
+* Fixed a bug that caused measurements to be incremented by varying multiples of 3.28 if more than one airport was open at a time, or if more than one airport had been open at any time since FSX Planner was opened.
+* There is now an option to display the lighting of the airport.  This is available by selecting Navigation -> Display Lighting.  All taxiway and runway lighting will then be displayed.
+* FSX Planner now checks for background images in a folder called FSXPlanner located within your My Pictures folder. Note that FSX Planner does not automatically put images in this folder, instead it leaves them in their original location.  However, if they are not found in their original location, then FSX Planner checkes the above folder for them.
+* Approach Transition Legs can now be edited.  Transitions are displayed in a third table in the Approach Editing Dialog.  You can double click on a transition to edit it in a similar fashion to editing an approach.
+* Fixed a bug that caused some VASI types to be incorrectly decompiled form bgl files.  This could result in compile time errors stating that the VASI did not have a valid type assignment.
+
+------------------------------------------
+
+Updates in Build 24
+
+* Fixed a bug which prevented runway taxiway path numbers for runways between 1 and 9 from being displayed in the properties display after an airport had been decompiled form a bgl file.
+* Fixed a bug which caused the approach leg fix type to be occassionally incorrectly read.
+* Fixed a bug that caused certain jetway scenery objects to be read inccorectly, resulting in errors when trying to compile the airport to a bgl file.
+* Fixed a bug that caused FSX Planner to hang while certain airports, such as PAWD, were being decompiled if the runway contained certain objects.
+* Fixed a bug that was due to rounding errors causing incorrect altitude warnings when running error checking.
+* Fixed a bug that caused Tower altitude checks to be calculated as above sea level instead of above ground level.
+* Synchronizing the tower scenery object to the tower viewpoint now only tracks the latitude and longitude.  This allows for different altitudes between the viewpoint and scenery object.
+* Fixed some bugs associated with object locking that allowed aprons and fuel triggesr to still be moved even if they were locked.
+* When opening xml files, both the airport icao code and the file name are now used to see if the airport is already open.  This allows for multiple versions of the same airport to be open simultaneously as long as they are saved in different files.
+* Scenery objects did not have the display name set when an xml file was opened.  This resulted in blank display names for all scenery objects until the scenery object's properties were displayed.  This bug has been fixed.
+* Fixed a bug that caused GUIDs to be decompiled incorrectly.
+* A button labeled 'add names' has been added next to the name field of the taxiway path properties display. This button is a shortcut to the add taxiway path names dialog.
+* When FSX Planner is closed a dialog will be displayed for each open airport asking whether or not you want to save the airport.
+* Moving an apron or a fuel trigger is now an undoable event.
+* The type and size of the plane used to represent the simulator plane is now remembered between sessions.
+* Background images can now be turned on or off individually.  This let you have multiple images associated with an airport, but only have certain ones displayed at one time.
+* An update feature has been incorporated into FSX Planner.  This is available by selecting File -> Check For Updates.  This allows you to download and install future updates without having to redownload and install the entire FSX Planner application.
+
+------------------------------------------
+
+Updates in Build 23
+
+* BGL files can now be opened directly.  There are two ways to do this:
+
+1) File -> Open Airport BGL - This option should be used if you know the exact BGL gile you wish to open.  You will have to navigate to the file, select it, and then it will be decompiled and opened.  If the file contains more than one airport, then you will be presented with a list of the airports it contains, allowing you to choose the one you want to open.
+
+2) File -> Find Airport - This option should be used if you want to open a default FSX airport, and don't know where it is located.  This dialog can search the airports by scanning the scenery files themselves, or by using the SDK's fs10.Airports.dat file.  The latter is only necessary if you are using FSX Planner on a machine that does not have FSX installed.  (If this is the case, then you won't be able to open the airport after finding it.)
+	Scanning the airports is the easiest way to go.  Before searching for an airport for the first time you must scan all the airports.  Click the Scna Airports button to do this.  After this one time scan, you can search for an airport by either ICAO code or by name.  A list of airports that partiall or fully match the entered ICAO code or name will be displayed.  To open an airport double click on its name in the table.
+
+------------------------------------------
+
+Updates in Build 22
+
+* Fixed a bug that caused the New Airport functionality to fail.
+* Fixed a bug that caused background images to be displayed incorrectly at certain zoom levels.
+* ILS Hold Short Lines are now displayed at the appropriate taxiway nodes.
+* Fixed a bug that caused single digit runway numbers to be read incorrectly and not display properly.
+* There is now an option which allows the user to set the diameter of a vertex point.  This is five feet by default but can be changed under the Defaults tab of the Preferences dialog.
+* There is now a series of set up screens that are displayed the first time FSX Planner is run.  These are intended to show the various configuration options available within FSX Planner, and to allow the user to set them to their preference.  These options can be set in the set up screens, or at any time in the future.
+* Apron and Fuel Trigger vertices are now highlighted when they are selected.
+* An error check has been added to check for altitudes that do not corrispond with the airport altitude.
+* Fixed a bug that prevented the tower scenery object from being recorded when clicking the Display Tower Scenery Object checkbox in the Tower Data display.
+* Fixed a bug that caused a copied scsnery object to be pasted as a tower.
+* Fixed a bug that prevented certain values from being recorded if the user entered a new value for an object and then clicked on a different object before hitting return.
+
+------------------------------------------
+
+Updates in Build 21
+
+* Fixed a bug that caused some of the VASI light spacing to be drawn inaccurately at certain zoom levels.
+* Object Locking has been implemented.  This dialog, located under Edit -> Object Locking, allows you to specify which objects should be locked.  A locked object cannot be dragged, enabling you to prevent objects from being unintentionally moved.   A locked object will have its lat/lon coordinates displayed in a text field with a red background.  A locked object may still be moved by manually typing in new lat/lon coordinates.
+* Fixed a bug with the zoom functionality that caused the airport to shift to oneside when at maximum zoom.
+* Adjusted the zoom in and out tools so that they zoom in and out on the location that was clicked.
+* Fixed a bug that caused the edge lines of taxiway paths to be drawn even if the taxiway path type was not being displayed.
+* The boundary fence, blast fence and apron edge light tools would sometimes not start or select new fences if another fence was currently selected without clicking multiple times to clear the currently selected fence.  This has been fixed.
+* Hold short lines are now displayed on taxiways.
+* There is now a Create Image button in the Background Image dialog.  This will displa the zBlueSoftware FSX Planner maps page with the map centered over the current airport.
+* FSX Planner now connects to FSX via SimConnect. FSX Planner uses a java library to connect to FSX.  (It is available here and is a fantastic library: http://lc0277.nerim.net/jsimconnect.)  FSX Planner supports both local and remote connections.  FSX Planner will still run just fine without FSX being present (you just won't be able to connect to FSX obviously).  A brief overview of how to use the SimConnect funtionality of FSX Planner follows.
+
+-The SimConnect.xml file must be placed in the C:\Documents and Settings\<user>\Application Data\Microsoft\FSX folder for FSX Planner to access FSX.  This is needed for both local or remote connections.  The ip address and port number used in FSX Planner must match the ones specified in the xml file.  If a SimConnect.xml file already exists in the folder, then make sure it contains the appropriate information.
+
+-To connect to FSX select SimConnect -> FSX Connection Status.  Then make sure the ip address and port number are set properly to match those in your SimConnect.xml file.  Then click connect.  If all goes well FSX Planner should connect instantly to FSX.
+
+-The position of the FSX plane is displayed within FSX Planner by a small plane icon.  You can display this even if you are not connected to FSX.  Choose SimConnect -> Show Plane (or right click anywhere on the airport and choose "Show Plane").  The plane icon can be set to any of the default FSX planes.  Each one is drawn to approximately the correct size giving you an idea of how much space the plane needs. (The sizes are accurate to within a foot).
+
+-Right click options explained:
+Move Cursor To FSX Plane: This will center the airport over the current location of the plane from FSX.  The plane icon will be repositioned to the correct lat/lon and heading as well.  You need to have loaded a flight within FSX for a valid position to be read from FSX.  If the plane is outside of the airport test radius then it will not be displayed.
+
+Move FSX Plane To Icon: This will move the plane within FSX to the current lat/lon and heading of the plane icon as it is currently positioned within FSX Planner.
+
+Move Plane To Here:  This will move both the plane icon in FSX Planner and the plane within FSX to the current location of the cursor.  If you are not connected to FSX, then only the plane icon in FSX Planner will be moved.
+
+-There are two checkbox options in the Plane Data properties display.  They are:
+FSX Plane auto follows cursor: This option will update the position of the plane within FSX whenever you drag the plane icon within FSX Planner.  The position of the plane within FSX is updated when you release the mouse button.
+
+Cursor auto follows FSX plane:  This will recenter the airport over the current position of the plane within FSX and update FSX Planner's plane icon to the correct lat/lon and heading of the plane from FSX whenever the plane moves in FSX.  This is useful if you want to slew around your airport and have that position constantly updated in FSX Planner.  The location of the plane is sampled and updated once a second.
+
+It is probably not a good idea to check both of these at the same time.
+
+-If you have problems getting SimConnect to work first check your ip address and ports from FSX Planner and the SimConnect.xml file.  They must be the same.  Then make sure your SimConnect.xml file is located in the correct folder, as stated above.  FSX must obviously be running for a connection to be established.
+
+
+
+------------------------------------------
+
+Updates in Build 20
+
+* Fixed a bug that caused the Find Airport dialog to occasionally incorrectly identify airport bgl files for airports in the southern hemisphere.
+* Fixed a bug which caused the Secondary Landing attribute of a runway to be incorrectly recorded.
+* Background images are now supported.  You can have as many background images as your copmputer's memory and cpu speed can support.  Each one should be a 72 dpi jpg.  You will also need to know the lat/lon coordinates of the top left and bottom right points of the image.  The images can be displayed either above or below the aiport diagram.  This, along with the transparency of the images can be specified in the Preferences dialog.  To add or remove background images from the airport select Edit -> Manage Background Images.  Images are also saved with each airport.
+* Airport Fuel Services can now be edited.  Select Edit -> Airport Services to open a dialog that allows you to modify the fuel services available at the airport.  Note that this does not create locations at the airport where a plane can refuel, but rather controls the list of available fuel options that is displayed for the airport in the gps.
+* Tower properties have been updated to allow you to edit or add tower scenery objects for each tower.  A list of stock tower scenery objects is available for you to choose from, or you can create your own and use that.  This allows for you to have a physical tower associated with the tower viewpoint.
+* Fixed a bug that caused FSX Planner to freeze during compilation if BglComp.exe was not found.
+* The corners handles of exclusion rectangles have been made much bigger in an effort to make it easier to grab and resize them when zoomed out.
+* Fuel Triggers are now supported.  You can add a fuel trigger by selecting the fuel trigger tool from the navigation tool bar (View -> Navigation Toolbar) and then drawing the fuel trigger in the same fashion as you would draw an apron.  Fuel triggers are necessary in order to have your plane be refueled at a fuel parking location.  You should create one that covers at least the fuel parking space.  Fuel triggers can be displayed or hidden by selecting Display -> Show Fuel Triggers, or by using the ctrl-shift-F key command.  They are hidden by default.
+* The color used to draw the Fuel Trigger polygons can be set via the Colors tab of the Preferences Dialog (File -> Preferences).
+* The color used to draw the Exclusion Rectangles can be set via the Colors tab of the Preferences Dialog (File -> Preferences).
+* The color used to draw the Scenery Objects can be set via the Colors tab of the Preferences Dialog (File -> Preferences).
+* You can automatically add a fuel trigger to a parking location by pressing the fuel icon in the parking location properties display, or by selecting Add Fuel Trigger from the right-click drop down when a parking location is selected.
+* Scenery Objects are now supported.  You can add a scenery object by selecting the scenery object tool from the navigation tool bar (View -> Navigation Toolbar) and then clicking on the airport where tou want to add the scenery object.  After placing the scenery object you have to specify what it should be.  You can do this by selecting from a drop down of default flight simulator scenery objects from the Scenery Type drop down.  If you want to enter a specific GUID for the object, then choose Custom Scenery Object from the drop down and enter the GUID into the Name text field.  Scenery Object can be displayed or hidden by selecting Display -> Show Scenery Objects.  They are hidden by default.
+* You can automatically add a fuel station scenery object to a parking location by pressing the scenery icon in the parking location properties display, or by selecting Add Fuel Station from the right-click drop down when a parking location is selected.
+* You can automatically add a localizer array scenery object to an ILS Feather by pressing the scenery icon in the ILS properties display, or by selecting Add Localizer Array from the right-click drop down when an ILS feather is selected.
+* You can automatically add a VOR Station scenery object to a VOR by pressing the scenery icon in the VOR properties display, or by selecting Add VOR Station from the right-click drop down when a VOR is selected.
+* You can automatically add an NDB Antenna scenery object to an NDB by pressing the scenery icon in the NDB properties display, or by selecting Add NDB Antenna from the right-click drop down when an NDB is selected.
+* An example background image for LaGuardia airport is included.  It covers the end of runway 31.  To view it select Edit -> Manage Background Images.  Then click the Select Image button and browse to and select the LaGuardia1.jpg image file.  It should be in the same folder as the FSX Planner application.  The top left lat/lon is 40.7746187308/-73.8644635677.  The bottom right lat/lon is 40.7697436836/-73.8558804989.  Make sure that background images are set to be displayed (Display -> Show Background Images) otherwise you won't see the image.
+
+------------------------------------------
+
+Updates in Build 19
+
+* Adding objects and copying and pasting objects was causing extra unneccessary undo/redo events to be generated.  This has been fixed.
+* The 'smart' taxiway option has been added.  This option will set the properties of a taxiway drawn on top of a runway to inherit the properties of that runway.  This should reduce the time needed to develop an airport as the taxiway will automatically be assigned as a RUNWAY type as well as being assigned the correct width, surface type, runway number and designator.  This option will override the option of inheriting the properties of the previous taxiway path if the new taxiway path is drawn over a runway.  This option can be turned off by unchecking the 'Taxiways drawn on runways should inherit the runways properties' checkbox in the Properties dialog.
+* Fixed a bug associated with the airport test radius.  FSXPlanner was not converting nautical miles to feet or meters.  This had a side effect of not reading in VORs, NDBs, Markers and Windsocks if the airport test radius was in nautical miles.
+* Fixed a bug associated with writing the XML code for approach Leg segments when the leg had a distance of zero.
+* Fixed a bug associated with writing the XML code for approach Leg segments when certain optional parameters were blank.
+* Runway VASI, PAPI, etc lights are now displayed as appropriate.
+* Runway precision and alternate precision markings are now displayed properly.
+* Inserting an new object will now cause that type of object to be displayed if it is not already so.  This is intended to remove issues resulting from trying to insert a VOR, for example, when the Display VORs option is not selected.
+* Runways numbers (idents) are now displayed on the runways as appropriate.
+* You can now cut apron edge light strings, boundary fences and blast fences into multiple segments.  To do this, select the apron egde light string, boundary fence or blast fence you wish to cut, and then select the vertex that you want to cut the item at.  The vertex must be displayed in the object properties display for the cut button to be enabled.  Clicking the cut button in the object properties display with cut the object into two after the selected vertex.  This is useful for many things such as correcting apron edge light strings that are incorrectly read, or for creating space in an existing fence for a road, etc.
+* The selection and dragging of vertices has been improved.  Aprons, apron edge lights, boundary fences, blast fences and their vertices are all now displayed using the same visual style when they are selected.  Vertices associated with boundary fences, blast fences and apron edge lights can now be moved with the generic pointer tool.  Just click on a edge light string or fence to select it, then you can click and drag a vertex.  You still need to use the specific tools to create, add and remove vertices.  This also allows you to cut these strings and fences into two parts without having to use the specific tool.
+* Single ended runways are now displayed properly.
+* There are now shortcut buttons for adding and ILS to a runway.  These appear in the runway properties display and allow you to add an ILS, with DME and Glide Slope, to either the primary or secondary end of the runway.
+* The Clean Up Aprons option has been enhanced to also check for Apron Edge Light strings that have only one vertex.  Any that are found will be deleted.
+* You can now join two boundary fences, blast fences or apron edge light strings together. To do this drag an end vertex of one fence over an end vertex of another fence and hold the shift key down as you release the mouse button.  The two fences, or apron edge light strings, will be joined at that vertex into one longer fence, or apron edge light string.
+
+------------------------------------------
+
+Updates in Build 18
+
+* The undo/redo/history functionality was not recording or undoing some of the runway details.  This has been fixed and now all runway details are undoable.
+* You can now specify whether or not the DeleteAirport information should be written to and/or read from the airport xml file.  This option can be set in the preferences dialog and is on by default.  This allows for xml source files shared between different users to maintain what parts of the airport should be deleted instead of just blindly setting all delete flags to true.
+* Added error checks for ILSs without Idents; and taxiway points that have incorrect types or orientations.
+* Windsocks can now be added or edited.
+* Cleaned up some of the UI to be more user friendly.
+* Modifyied the add taxiway tool so that holding the shift key down when you are creating the start or end point of the taxiway will allow you to insert the start or end point into the middle of an existing taxiway.
+* Added an error check for parking locations that don't have an appropriate Type assignment.
+* Airports can now be printed. You can specify the size of the page, allowing you to print from a regular letter size sheet up to a huge banner size many feet across.
+* The latitiude and longitude coordinates of a vertex associated with an Apron, Boundary Fence or Blast Fence are now displayed in the properties display when a specific vertex is click on during the editing process of the apron or fence.  This allows for fine control over the exact placement of a vertex associated with the apron or fence.
+* Apron Edge Lights were not being handled correctly.  They were being loaded as individual points instead of as a string of lights. This has been fixed.  Apron Edge Lights are now treated similarly to fences in that they consist of a series of vertices which are connected by a 'string.'  They are midified in the same fashion as a fence.  To create a new string of edge lights, select the Apron Edge Light tool and click where you want the first vertex to be, then click at the location of each additional vertex.  Double click to end the string.  If you hold down the shift key when double clicking the string of lights will be closed by adding an end vertex at the same location as the start vertex.  To insert a vertex into an existing string of edge lights, select the apron edge light tool, then click on the string of edge lights to select them, then shift-click at the location on the string where you want to insert the new vertex.  To delete a vertex, follow the same procedure, but control-click on the vertex to be removed.
+* There is a new preference in the Preferences Dialog that allows you to specify if lines should be drawn between the vertices of an edge light string when it is not selected.  This option is off by default.
+* The Taxiway Names menu item has been moved to the Edit menu.  The Lists menu has therefore been removed as it only had that one option under it.
+* Improvements have been made to the Taxi Name dialog to make it easier to handle taxi names.  In addition the default blank taxi name is now assigned properly to all new taxiways even if no taxi names have been created for the airport.  Note this does not affect taxiways that are being copied or created by extending an existing taxiway.
+* Exclusion Rectangles are now created by using the Exclusion Rectangle tool from the toolbar.  You click and drag the create the rectangle.  To modify the size of the rectangle after it is created you can either enter exact lat/lon coordinates into the Exclusion Rectangle properties display, or when using the exclsuon rectangle tool, you can click and drag a vertex.  The Exclusion tab of the Prepare Options dialog is now no longer included as it has been replaced by this functionality.
+* There is a new preference option under the Option tab of the Preferences dialog which allows you to specify whether or not you want to read and write exclusion rectangles from/to the airport's xml file.
+
+------------------------------------------
+
+Updates in Build 17
+
+* FSX Planner was looking at file names in a case-sensitive manner.  This would cause it not to display files with  .XML extensions in the open dialog.  This has ben fixed and file names are now case insensitive.
+* Tweaked the object property displays to help keep similar properties together.
+* Fixed a bug in the Error Checking display that prevented taxiways, runways, NDB and VORs from being displayed when you clicked on their name in the results table.
+* Added the ability to specify default values for Runway Threshold Offsets, Blast Pads, Overruns and VASIs.  These are available under the Runway tab of the Preferences dialog.
+* Fixed a bug that caused VASI values to be read incorrectly from the XML file.
+* The Clean... checks menu options have been moved to the Compile menu from the Edit menu.  The Find Airport menu option has been moved to the File menu from the Compile menu.  This was done to better group similar functionality.
+* A Clean Taxiway Points check has been added.  This searches the airport for taxiway points and parking locations that have no taxiways associated with them and deletes them.
+* A Clean All check has been added.  This is a convenience option that runs all the Clean... checks.
+* Modified the handling of NDBs so that terminal NDBs can now be opened, saved and edited.
+* The cut/copy/paste feature has been implemented.  You can now cut, copy and paste most objects.  To copy or cut an object select it then use the right click popup menu or the ctrl-x or ctrl-c commands, When pasting an object it will be pasted at the current cursor location.  Aprons and fences are pasted so that the center of the apron or fence is at the current cursor location.
+* Fixed a bug that sometimes caused incorrect taxiways to be deleted when a taxiway point or a taxiway parking location was deleted.
+* A dialog is now displayed when you close an airport display within FSX Planner to ask you if you want to save the airport before it closes, or to cancel the close action.
+* The color used to highlight selected objects is now user definable via the Colors tab of the Preferences dialog.
+* FSX Planner now recognizes Latitude/Longitude coordinates in five different formats.  These formats can be used to enter lat/lon coordinates in any lat/lon text field within FSX Planner.  They are: N40 46.6345, N40 46 38.07, 40 46.6345N, 40 46 38.07N and 40.77724167.
+* The user can now specify whether selected objects should be outlined or highlighted.  The default is to outline a selected object.  This can be changed in the Display tab of the Preferences dialog.
+* The Compile Dialog has been adjusted to allow for more user configurability with regards to the final placement and name of the compiled BGL file.
+* Exclusion Rectangles have been added, allowing you to delete taxiway signs, windsocks, etc.  To include an exclusion rectangle use the Exclusion tab of the Prepare Options dialog.  You can specify the exact location of the rectangle, or have one created that covers the entire airport.  You can also specify exactly what this rectangle should delete.
+		
+------------------------------------------
+
+Updates in Build 16
+
+* The xml code write engine has been completely rewritten.  The extra lines that were created before are no longer created.  Attributes are now output in the order specified in the SDK documentation.  There is now an option to display each attribute on a separate line (default), or all on one line.  This can be adjusted via the preferences dialog.
+* Markers and VORs are now saved to the airport xml file.
+* There was a bug which would make the Find Airport feature give incorrect file/folder results for certain airports.  This has been fixed.
+* You can now specify the default tee 1 - tee 4 offsets for a parking space.  This is accessible through the Defaults tab of the Preferences Dialog.
+* All values that are displayed in spinners (ie altitudes, widths, lengths, etc) are now displayed and can be edited to 3 decimal places.
+* Modified how apron vertices, boundary fence vertices and blast fence vertices are added and deleted.  To add a vertex, use the appropriate tool and shift-click where you want the vertex to be added.  Note that you must click on a valid location for a vertex.  To delete a vertex, control-click on the vertex you want to delete.  This change was made to create a more uniform approach to adding and removing vertices throughout FSX Planner and also to allow for the right click popup menu.
+* The Navigation toolbar and the View -> Navigation Toolbar menu now communicate properly so that they stay synched.
+* The Airport Data Display and the Object Data Display panels are now tear-offs and can be moved to other locations on the screen, or to other monitors, or they can be hidden.  To do so, click on the title bar of either the airport data display or the object data display and drag it to the desired new location.  Clicking the X in the title bar will return the window to the docked location on the left.  Clicking the X when the window is docked will hide it.  There are two new menu options under the View menu which also control the visibility of these windows.  If the panel is hidden and you want to see it, select the appropriate view sub-menu.  If you want to hide one of the panels, uncheck the appropriate View sub-menu option.
+* The NDB tool has been implemented.  You can now add, view and edit NDBs for the airport.  This tool is available under the navigation Toolbar (View -> Navigation Toolbar).
+* A check for VORs and NDBs without Idenst has been added to the error checking dialog (COmpile -> Error Checking).
+* A check for taxiway paths that have invalid start or end indices has been added to the error chekcing dialog. (Compile -> Erro Checking).
+* The Clean Up Taxiways option, under the Edit menu, now also checks for taxiways that have non-existant start or end points and deletes those taxiways.
+* The Find Taxiway Point dialog has been added.  This is available under the Edit menu.  It allows you to enter the index number of a taxiway point or parking location and then have that location display if it exists.  this is intended to help in debugging errors within the airport due to incorrect or non-existant taxiway point indices.
+
+------------------------------------------
+
+Updates in Build 15
+
+* Runway Markers can now be displayed, edited, and added to an airport.  By default these are not shown.  To display them select the Show Markers option on the Display menu.  To add a new Runway Marker click on the Runway Marker icon on the Navigation toolbar, which can be displayed by selecting View -> Navigation Toolbar.
+* VOR beacons and their associated DMEs can now be displayed edited and added to the airport.  By default these are not shown.  To display them select the Show VORs option on the Display menu.  To add a new VOR click on the VOR icon on the Navigation toolbar, which can be displayed by selecting View -> Navigation Toolbar.
+* Fixed a bug that had crept in which prevented aprons from being able to be created.
+* Fixed a bug that made the recording of a taxiway point orienation inaccurate.
+* Fixed a bug in the undo/redo/history functionality that caused undo events to be generated when certain models were being initialized.
+* Updated the xml written during a save so that the taxiway points and parking locations are now written in numerical order.
+* The Prepare Options dialog has been enhanced to allow for specific runway, start location and frequency deletions.  To use these you must not check the Delete All Runways (or Start Points or Frequencies) but rather check the rows within the table that you are interested in delting.  The table is populated based on the currently selected airport.
+
+------------------------------------------
+
+Updates in Build 14
+
+* The icon used to draw the jetways has been modified to make it easier to see where the jetway is located and its direction relative to the parking space.
+* Adjusted the width of the properties windows to be fixed width regardless of screen size.  This should help provide enough room for all fields.
+* Fixed a bug with the undo/redo system that prevented items that had been undone from updating their displays in the properties window.
+* The runway propeties display has been rearranged to group all the runway lights together and to allow for VASI on both the left and right side of each end of the runway.
+* ILS Beams can now be added to the airport.  You need to display the navigation toolbar (View -> Additional Toolbars), then select the ILS CUrsor.  Then an ILS beam will be added when tyou click on the airport.  After adding the ILS Beam, make sure you assign it to the correct runway.
+* Approaches can now be fully edited, added or deleted.
+* Fixed a bug that caused the undo/redo/history to ignore all changes (therefore making it impossible to undo a change) after opening an xml file that contained more than one airport.
+* A bug which prevented an ILS Beam and its asociated Glide Slope and DME from being assigned to the selected runway when the user modified the runway association from within the ILS properties display has been fixed.
+
+------------------------------------------
+
+Updates in Build 13
+
+* Pressing the delete key will now delete any selected item in the airport display.
+* Runway center lines are now displayed on runways as appropriate.
+* Runway closed markings are now displayed on a closed runway.
+* Runway STOL markings are now displayed on a STOL runway.
+* The buttons within the Taxiway Sign Wizard have been rearranged to provide for a better order.
+* Some slight display errors have been cleaned up within the Taxiway Signs that are displayed in the taxiway sign properties display and in the Taxiway Sign Wizard.
+* Fixed a bug that set the default look and feel to "Metal" instead of "Windows". (For best performance you should use "Windows" as the look and feel.  Setting it to "Metal" causes some of the property windows to need scrollbars which are not needed when using the "Windows" setting.  This setting can be changed under File -> Preferences, General tab.)
+* Fixed a bug which prevent having altitudes below sea level.
+* ILS Beams and their associated DMEs and Glide Slopes can now be displayed and edited. By default these items are not displayed. To show them, select the Show ILS Beams option under the Display menu. The colors used to render the ILS Beams, DMEs and Glide Slopes can be customized from within the Preferences Dialog (File -> Preferences; Colors tab). When you select any part of the ILS (ie ILS, DME or Glide Slope) all items associated with that ILS system will be selected and highlighted, making it easier to see which components are part of the ILS system.
+
+------------------------------------------
+
+Updates in Build 12
+
+* The color used to draw the taxiway lines can now be changed using the preferences dialog.
+* Aprons and Runways are now dragged based upon the point where you first click on them, rather than their center point.
+* Fixed a bug that caused some taxiway lines not to be drawn correctly when connecting two parallel taxiways of different widths.
+* Implemented the Move Airport feature (Edit -> Move Airport).  This allows you to enter new latitude/longitude coordinates for the center of the airport and then have the entire airport moved to corrispond to that new center location.
+* A bug that prevented the Find Aiport feature from finding airports if you did not enter the ICAO code in upper case has been fixed.
+* The file chooser displayed when selecting the Open Airport XML option now defaults to the directory of the last opened airport xml file.
+* The File -> Close Airport option has been implemented.
+* The Open Recent File option has now been implemented.  This remembers the last 10 file opened.
+* A 'View' menu has been added.  This lists all the currently opened airports.  Selecting that airport name from this menu will make sure that airport is displayed in front of all other airports.  This is intended to make it easier when working with multiple airports simultaneously.
+* The Taxiway Sign properties display now also shows the taxiway sign as it would appear within flight simulator.  This makes it much easier to decode the cyptic label system used by flight simulator.
+* Fixed a bug that caused some taxiway signs to be orientated incorrectly by 180 degrees.
+* The Taxiway Sign Wizard has been implemented.  This wizard is accessible by clicking the 'wizard' button next to the taxiway sign label in the Taxiway Sign Properties display.  It is a graphical tool to help you create Taxiway Signs without having to keep looking up all the various characters used within a taxiway sign label.
+
+------------------------------------------
+
+Updates in Build 11
+
+* The primary and secondary blast pads are now drawn on runways.
+* Fixed bug that caused some taxiway edge lines not to be drawn correctly.
+* Fixed bug that caused taxiway edge lines to ignore parking type taxiways.
+* Added a check to the taxiway creation tool to ensure that you can't have a taxiway start and end at the same taxiway point.
+* Added an option to remove all taxiways that have the same start and end points (Edit -> Clean Up Taxiways)
+* The primary and secondary threshold offsets are now drawn on runways.
+* Runway threshold marks are now drawn on the runways.
+* Runway fixed distance marks are now drawn on the runways.
+* Runway touchdown marks are now drawn on the runways.
+* Runway precision marks are now drawn on the runways.
+* You can now 'close' a boundary fence by holding the shift key down when double clicking to finish the fence.  This creates a final vertex point at the same lat/lon coordinates of the first lat/lon point of the fence.
+* There is now a preference to turn on or off the option of restoring the window size and location upon starting FSX Planner to what is was when you last exited FSX Planner.
+* There is now a preference to clear the compile window when you open the compile dialog.  This is on by default.
+* Rearranged the Runway Markings properties display to better group like-properties together.
+* Approach information is now read and can be displayed by selecting Navigation -> Approaches.  Double clicking on the approach row within the table will then display the full approach information.  This feature is currently read-only.  Approaches cannot be created or edited yet.
+
+------------------------------------------
+
+Updates in Build 10
+
+* Fixed some bugs associated with properties not being set to standard default values when creating a new runway.
+* The main background color of the work surface that the airport is displayed upon can now be specified by the user through the preferences dialog (File -> Preferences).  The default is white.
+* You can now insert taxiway points into existing taxiways by holding down the Shift key when adding the new taxiway point.  If you click over the center line of a taxiway, then the new taxiway point will be inserted into the taxiway at that point.
+* There is now an option in the preferences dialog to base the properties of new taxiways on existing ones. If you create a new taxiway that starts at a taxiway point which has only one other taxiway connected to it, then your new taxiway will assume the properties on that existing taxiway.  This makes it very easy to add a taxiway with many taxiway points and have each section of the taxiway use the same properties as the first without the user having the manually set them over and over.  This option is on by default.
+* There is now a preferences for the default taxiway weight limit.  This is set to 500,000 by default and can be adjusted by selecting File -> Preferences and clicking on the Defaults tab.
+* The 'New Airport' command has been implemented, allowing users to create airports from scratch.
+* XML files that contain multiple airports can now be opened.  A list of all the airports witin the xml file is displayed allowing you to choose the one or ones you want to open.  FSX Planner supports opening multiple airports simultaneously.
+* Airport attributes have been reordered within the XML file that is compiled in order to fix the issue with items said to be erroneously outside of the airport test radius by bglcomp.exe
+* Modified the display to not show taxiway edge lines and parking location images if the user is zoomed out enough on the airport.  The idea is that the image will be less cluttered by removing items which you can't really see at that zoom level anyway, and will also draw a little bit quicker.  Let me know what you think about this concept.
+* The build number is now displayed in the title bar.  This will be removed once the application is completed and released.
+* The size and location of the window is now remembered so that the next time the application is opened it is displayed in the same location.
+
+------------------------------------------
+
+Updated May 13th
+* Added error check for duplicate jetways
+* The Vasi tab of the runway properties display is now working.  You can edit the primary and secondary vasi and approach lights for the runway now.
+* Fixed bug where latitude/longitude points were displayed and/or saved using commas instead of decimal points.
+* Communication frequencies can now be displayed and modified by selecting Navigation -> COMs.
+* Save As option now asks for permission to over-write an existing file.
+* Save As option now opens the file chooser in the same directory as the file that was opened.
+* Within the Taxiway Path properties display, the Number, Designator and Name options are now enabled or disabled based upon the currently selected taxiway Type.
+* Added error check for taxiway paths associated with non-existant runways added.
+* Added error check for taxiway paths that do not have runways or designators assigned to them where appropriate.
+* Added error check for runways with incorrectly set up designators.
+* Improved the drawing of taxiways so that the left and right edge lines intersect properly.
+
+------------------------------------------
+
+Updated May 9th
+* Added ability to specify whether jetways should be updated along with parking locations.
+* Added ability to specify how many undo items should be stored in the history.  The default is 30.
+* Redesigned color preferences to allow for more colors to be specified, including the background latitude/longitude lines.
+* Implemented the Clean Up Aprons and Clean Up Fences functionality.  This finds and removes aprons and fences which consist of two or one vertices respectively.
+* Implemented Error Checking.  This scans the airport for items that will cause errors during compilation, such as duplicate parking locations or jetways with out associated parking locations.
+* Updated the display of parking locations to provide different graphics for airplane, vehicle and fuel parking locations.
+
+------------------------------------------
+
+Updated May 7th
+* Can now add and remove vertices for aprons and boundary fences.  Right clicking when using the apron or boundary fence tool provides add and delete verions of the tool, which allow you to add or remove vertices respectively.
+* Added option to display airport test radius
+* Fixed bug where surface color preferences were not saved
+* Fixed bug were your could not assign Gate_A throught Gate_Z option to parking spaces
+* Can now create, edit and delete Blast Fences.
+* Can now add and remove vertices for blast fences.  Right clicking when using the blast fence tool provides add and delete verions of the tool, which allow you to add or remove vertices respectively.
+* Can now create, edit and delete Jetways.
+
+
+------------------------------------------
+
+Updated May 3rd
+* Fixed a bug in reading boundary fences from xml files
+* Implemented save and compile functionality for boundary fences and blast fences
+* Added toolbar icons for zoom and scroll functionality
+* Implemented "Return To Center" functionality
+* Adjusted zoom so that you can now zoom farther out
+* Added several new preference options, including the ability to specify the colors used to surface textures
+
+------------------------------------------
+
+Updated May 2nd
+* Zoom fixed so that it zooms in and out on the center of the screen and not the center of the airport
+* Bug which prevented BGLComp.exe from successfully compilinig XML files ha been fixed.
+* Bug which prevented taxiway signs from being successfully compiled has been fixed.
+* The object data windows have been updated to record data as soon as it is modified.  This also fixes the problem with some data not being record into the undo/redo history.
+
+------------------------------------------
+
+Updated May 1st
+* Toolbar upgraded
+* Can now add runways
+* Can now add boundary fences
+* Can now add aprons
+* Aprons can now be edited
+* Boundary Fences can now be edited
+* Runways, aprons, taxiways and helipads are now colored based on surface type
+* More preferences options added for customizing appearance and defaults
+* Undo/Redo/History functionality added
+* Save/Save As functionality added
+* Taxiway edge lines are now displayed as appropriate
+* Runway marking and detail data now editable
+* Taxiway Names can now be modified
+
+------------------------------------------
+
+April 17th
+* Can now add and update Aprons
+* Added toolbar
+* Can now add parking locations
+* Can now add starting locations
+* Can now add Towers
+* Can now add Taxiway points
+* Can now add Taxiway Signs
+* Can now add Apron Edge Lights
+* Can now add Helipads
+* Can now add Taxiway Paths
+* Modified the object properties screen to provide for easier entry and better error checking.
+* Added several preferences (File -> Preferences) which control the behavior of the application and the dimensions of newly created objects.
+* Improved the drawing mechanism to speed up rendering.
+* Aprons can now be moved.
+* Latitude/Longitude display can now be customized for the mouse pointer, grid display and object display.
+
+------------------------------------------
+
+Current Functionality:
+
+FSX Planner can open airport xml files.  The direct reading of BGL file is not yet supported.  A tool, such as BGL2XML, should be used to convert the bgl file to the xml file.  We have included the xml for La Guardia airport, which we have been testing against.
+
+To scroll arround the airport click and drag the mouse wheel button.
+
+To zoom in or out scroll the mouse wheel button.
+
+To select an object left click on it.
+
+To move an object left click and drag the object
+
+All properties of the currently selected object are displayed at the left side of the screen.  Adjusting any of these properties will adjust the object.  Properties such as latitude, longitude, length, width, etc, will be reflected in the display.
+
+Any non editable object properties are displayed in grey.
+
+To delete an object select it, then click the delete button in the object properties window.
+
+To add an object select the appropriate tool from the toolbar.  For all objects, except taxiway paths, just click where you want to object.  For taxiway paths click on the first taxiway point and drag the mouse to the second taxiway point and release the mouse.  A taxiway path will be created between the two points.  To help you determine which points you are using, the point will be highlighted when the mouse is over it.  This makes it easier to know which point is being used as the end point.  If the location where you start or end the taxiway path does not have a taxiway point the none will be created for you at that location.  Taxiway paths that start or end at a parking location are created as Parking types, all others are created as Taxi types.
+
+To add an apron select the Apron Creation/Editing tool and click on a blank area of the airport.  This will place the first vertex of the apron.  Then move the mouse to where the second vertex should be and click there. (Do not click and drag, just click, move the mouse, and click again.)  Repeat this as many times as necessary to create your apron.  Double click the mouse when placing the last point of the apron.  This last point does not have to be next to the first point.  The last point and first point will automatically be joined.
+
+To edit an apron select the Apron Creation.Editing tool.  Click on the apron you wish tyo modify.  The apron will be highlighted with a blue border and each vertex will be drawn in red.  If you click and drag in the middle of the apron the entire apron will move.  (This is also true if you are using the pointer tool.)  If you click and drag on one of the red vertices, tyou will be able to reposition that vertex. Once you are done adjusting the apron, double click the mouse.
+
+To add or edit a boundary fence select the boundary fence tool from the toolbar.  Then follow the same concepts as described above for adding and editing aprons.
+
+----------------------------------------
+
+
+FILE MENU:
+Open Airport XML: This allows you to open an airport XML file.
+
+Save Airport XML: This allows you to save the airport xml file.
+
+Save Airport XML As: This allows you to save the airport xml to a new file.
+
+Preferences: This displays the preferences dialog
+
+Exit: This exits the application
+
+DISPLAY MENU:
+The various options under this menu allow you to specify which parts of the airport are displayed
+
+NAVIGATION MENU:
+Displays various navigation information for the airport.
+
+LISTS MENU:
+Taxiway Names: This allows you to edit the list of taxiway names associated with the airport.
+
+COMPILE MENU:
+Find Airport: This helps you find the BGL file, and folder within FSX's scenery folder that contains a specific airport.
+
+Prepare Options: This dialog lets you specify which parts of the airport should be written to the bgl file.
+
+Compile BGL FIle: This compiles the airport to a bgl file and places that file in the directory you specify.  By default this is the addon scenery/scenery folder within your FSX inatllation folder.  You may choose another other folder you like though.  Note that all airports modified or created within FSX Planner are treated as add-on scenery.  The original bgl files are not modified.
+
+------------------------------------------
+

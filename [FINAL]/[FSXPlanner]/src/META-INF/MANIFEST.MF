@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0 
+Created-By: 1.6.0_05 (Sun Microsystems Inc.)
+Main-Class: com.zbluesoftware.fsxp.FSXPlanner
+Class-Path: . jsimconnect-0.5.jar
+

@@ -1,0 +1,1 @@
+/home/username/j2sdk1.4.0/bin/java -cp /home/username/ClassCracker/ClassCracker.jar ClassCracker

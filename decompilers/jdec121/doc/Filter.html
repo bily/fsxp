@@ -1,0 +1,170 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<style>
+BODY, P, DIV, H1, H2, H3, H4, H5, H6, ADDRESS, OL, UL, LI, TITLE, TD, OPTION, SELECT 
+{ 
+ font-family: Verdana 
+}
+BODY, P, DIV, ADDRESS, OL, UL, LI, TITLE, TD, OPTION, SELECT  
+{  
+  font-size: 10.0pt; 
+  margin-top:0pt;  
+  margin-bottom:0pt;  
+} 
+BODY, P
+{
+  margin-left:0pt; 
+  margin-right:0pt;
+}
+BODY
+{
+  background: white;
+  margin: 6px;
+  padding: 0px;
+}
+h6 { font-size: 10pt }
+h5 { font-size: 11pt }
+h4 { font-size: 12pt }
+h3 { font-size: 13pt }
+h2 { font-size: 14pt }
+h1 { font-size: 16pt }
+blockquote { padding: 10px; border: 1px #DDDDDD dashed }
+a img {	border: 0; }
+table.zeroBorder {
+	border-width: 1px 1px 1px 1px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+table.zeroBorder th {
+	border-width: 1px 1px 1px 1px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+table.zeroBorder td {
+	border-width: 1px 1px 1px 1px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+.hiddenStyle {
+		visibility: hidden; 
+		position: absolute;
+		z-Index: 1;
+		paddingRight: 0;
+		background: white
+	}
+.misspell { background-image: url('/images/misspell.gif'); background-repeat: repeat-x; background-position: bottom }
+@media screen {
+.pb { border-top: 1px dashed #C0C0C0; border-bottom: 1px dashed #C0C0C0 }
+.writely-comment { font-size: 9pt; line-height: 1.4em; padding: 1px; border: 1px dashed #C0C0C0 }
+}
+@media print {
+.pb { border-top: 0px; border-bottom: 0px }
+.writely-comment { display: none }
+}
+@media screen,print {
+.pb { height: 1px }
+}
+.style4 {color: #FF0099}
+.style6 {font-size: 10px}
+</style></head>
+<body revision='app3cngxptz_4c2njnx:35'>
+<table bgcolor="#663300">
+  <tbody>
+  <tr>
+    <td bgcolor="#CCCCCC">
+      <br>
+      <blockquote> 
+        <p><font size=4><span class="style4">Decompiler Filter
+          Support&nbsp;&nbsp;&nbsp;&nbsp;</span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></font><b><span class="style6"> Last Edited By :Swaroop
+          Belur</span></b><b><span class="style6">  Oct '06</span></b> </p>
+        <p>&nbsp;</p>
+        <p><a href="Documentaion.html" target="_self">Main Page</a></p>
+      </blockquote><br>
+      <blockquote> <b> Description:<br>
+      <br>
+      Definition: Jdec Filter is a Filter which affects how final output is
+      rendered.<br>
+      </b><br>
+      There are 2&nbsp; levels of filters in jdec:<br>
+      <br>
+      <ol style=FONT-STYLE:italic>
+        <li>
+          Class Level Filters
+        </li>
+        <li>
+          Jar Level Filters(Archive to be precise)<br>
+        </li>
+      </ol>
+      <br>
+      &nbsp;&nbsp;&nbsp; <span style=TEXT-DECORATION:underline>Class Level
+      Filters:</span><br>
+      &nbsp; &nbsp;<br>
+      &nbsp; &nbsp; These filters as the name suggests has effect at the class
+      level.<br>
+      &nbsp;&nbsp;&nbsp; These filters can sometime be useful to the user if the
+      user for example<br>
+      &nbsp; &nbsp; does&nbsp; not want the Synthentic or abstract methods to be
+      decompiled.<br>
+      &nbsp;&nbsp;&nbsp; The above was only an example and can be extended to
+      other cases.<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; Please check the screenshot below for all class
+      filters. Names are<br>
+      &nbsp;&nbsp;&nbsp; self explanatory.<br>
+      &nbsp;<br>
+      &nbsp;&nbsp; <span style=TEXT-DECORATION:underline>Jar Level Filters:<br>
+      </span><span style=TEXT-DECORATION:underline><span style=TEXT-DECORATION:underline><br>
+      </span></span>
+      <ul>
+        <li>
+          &nbsp;&nbsp; These filters affect how jdec handles a jar file.For
+          example the user&nbsp;&nbsp;&nbsp;
+        </li>
+      </ul>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; can choose to
+      decompile only one package from the jar and NOT the<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entire jar.
+      Jdec has support for this.Check the
+      <span style=TEXT-DECORATION:underline>screenshot below</span>.<br>
+      <br>
+      <ul>
+        <li>
+          &nbsp;&nbsp; As of 1.2 release Jdec now supports archive files
+          which are of<br>
+        </li>
+      </ul>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zip format
+      also. In other words if a zip file contains class files then&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; the user can just click
+      on zip file.<br>
+      <span style=TEXT-DECORATION:underline><span style=TEXT-DECORATION:underline></span></span><b><br>
+      </b>
+      <ul>
+        <li>
+          <b>&nbsp;&nbsp; </b>As of 1.2 release Jdec now allows user to
+          define more archive level<br>
+          &nbsp; filters. User can select to decompile only class files
+          belonging to default<br>
+        </li>
+      </ul>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; package Or any
+      package also inside a archive file. It also allows the user<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to add/remove any
+      other type of format to be recognized as archive file.<br>
+      <br>
+      <span style="FONT-STYLE:italic; FONT-WEIGHT:bold">[NOTE: Check out the
+      launch Preview Jar feature also]</span><br>
+      </blockquote> &nbsp;<blockquote> <b>Screenshot:</b><br>
+      <br>
+      <img src="filter1.gif"> 
+	  <br><br>
+	  <img src="filter2.gif">
+	  </blockquote>
+    </td>
+  </tr>
+  </tbody>
+</table></body>
+</html>

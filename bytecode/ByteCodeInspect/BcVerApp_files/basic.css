@@ -1,0 +1,292 @@
+/* Standard style sheet for the website */
+
+.TableHolder {
+	Margin-Left : 150px ;
+	Text-Align : Center ;
+}
+
+.TableEntry {
+	Margin-Left : 0px ;
+	Text-Align : Center ;
+	Color : black ;
+	Font-Family : Times , TimesRoman , serif
+}
+
+.TableEntry A:link {
+	Color : inherit ;
+	Background-Color : inherit
+}
+
+.TableEntry A:visited {
+	Color : inherit ;
+	Background-Color : inherit
+}
+
+.TableEntry A:visited img {
+        Border : none ;
+}
+
+.TableEntry A:hover {
+	Color : inherit ;
+	Background-Color : inherit
+}
+
+.TableEntry A:hover img {
+        Border : none ;
+}
+
+.TableEntry A:active {
+	Color : inherit ;
+	Background-Color : inherit
+}
+
+.TableEntry A:active img {
+        Border : none ;
+}
+
+.NavBar {
+	Margin-Top : 0px ;
+	Margin-Left : 125px ;
+	Margin-Right : 0px ;
+	Color : white ;
+	Font-Style : normal ;
+	Font-Weight : normal ;
+	Background-Color : #006699 ;
+	Border : 10px solid #006699 ;
+	Border-Left : 30px solid #006699 ;
+	Border-Top : 10px solid #006699 ;
+	Border-Bottom : 10px solid #006699 ;
+	Border-Right : 30px solid #006699
+}
+
+.NavBar EM.Current {
+	Color : yellow ;
+	Background-Color : #006699 ;
+}
+
+.NavBar A:link {
+	Color : #33FFFF ;
+	Background-Color : #006699 ;
+}
+
+.NavBar A:visited {
+	Color : #CCFFFF ;
+	Background-Color : #006699 ;
+}
+
+.NavBar A:hover {
+	Background-Color : #003366 ;
+}
+
+.NavBar A:active {
+	Color : red ;
+	Background-Color : #006699 ;
+}
+
+.Bar {
+	Margin-Left : 125px ;
+	Color : white ;
+	Background-Color : #006699 ;
+	Border : 5px solid #006699 ;
+	Border-Left : 30px solid #006699 ;
+	Border-Top : 5px solid #006699 ;
+	Border-Bottom : 5px solid #006699 ;
+	Border-Right : 30px solid #006699 ;
+}
+
+.copyright {
+	Text-Align : Center ;
+	Margin-Left : 125px ;
+	Margin-Right : 0px ;
+	Margin-Bottom : 0px ;
+	Font-Size : 80% ;
+	Font-Style : Italic ;
+	Color : white ;
+	Background-Color : #006699 ;
+	Border : 5px solid #006699
+}
+
+.Applet {
+	Margin-Left : 140px
+}
+
+/* Standard title support */
+.PageTitle {
+	Text-Align : Left ;
+}
+
+/* Multiple title support */
+.UpperTitle {
+	Text-Align : Left ;
+	margin-bottom: 0px;
+}
+.InnerTitle {
+	Text-Align : Left ;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.LowerTitle {
+	Text-Align : Left ;
+	margin-top: 0px;
+}
+
+/* A quotation or similar, in a box */
+.Inset {
+	margin-left: 180px;
+	border: 2px solid;
+}
+.Inset pre {
+	margin: 10px 10px 10px 10px;
+}
+.Inset p {
+	margin: 10px 10px 10px 10px;
+}
+P.Inset {
+	border: none;
+	margin: 10px 50px 10px 210px;
+}
+
+/* Standard paragraph */
+P {
+	Margin-Left : 180px ;
+	Margin-Right : 20px ;
+	Color : black ;
+	Background-Color : white ;
+}
+
+P.Navigational {
+}
+
+/* Horizontal rule *.
+P.Separator {
+	Border-Top : thin solid black ;
+}
+
+/* For a single illustration */
+.Illustration {
+	Text-Align : Center ;
+	Margin-Left : 150px ;
+}
+.RightSide {
+	Float : right ;
+}
+.LeftSide {
+	Float : left ;
+	Padding : 4px ;
+}
+
+/* For a group of pictures */
+.PictureBlock {
+	Text-Align : Center ;
+	Margin-Left : 150px ;
+}
+
+P.Caption {
+	margin-top: 0px;
+	Text-Align : Center ;
+}
+
+H1, H2, H3, H4, H5, H6 {
+	Text-Align : Left ;
+	Margin-Left : 150px ;
+	Font-Family : sans-serif ;
+	Font-Weight : Bold ;
+	Color : black
+	Background-Color : white ;
+}
+
+/*H1.PageTitle {
+	Text-Align : Left ;
+}*/
+
+H6 {
+	Font-Style : Italic ;
+}
+
+PRE {
+	Margin-Left : 210px ;
+	Color : black
+}
+
+ADDRESS {
+	Margin-Left : 180px ;
+	Color : black
+}
+
+UL {
+	Margin-Left : 180px ;
+	Color : black
+	Background-Color : white ;
+}
+
+OL {
+	Margin-Left : 180px ;
+	Color : black
+	Background-Color : white ;
+}
+
+/* Support for text interspersed in a list */
+OL H1, OL H2, OL H3, OL H4, OL H5, OL H6, UL H1, UL H2, UL H3, UL H4, UL H5, UL H6 {
+	Margin-Left : -70px ;
+}
+
+OL P, UL P, OL LI .Illustration, UL LI .Illustration, OL .Illustration, UL .Illustration {
+	Margin-Left : -40px ;
+}
+
+OL .PictureBlock, UL .PictureBlock {
+	Margin-Left : -40px ;
+}
+
+OL LI P, UL LI P, UL UL, UL OL, OL UL, OL OL {
+	Margin-Left : 0px ;
+}
+
+BODY {
+	Margin : 0px ;
+	Margin-Right : 0px ;
+	Margin-Bottom : 0px ;
+	Margin-Left : 0px ;
+	Margin-Top : 0px ;
+	Color : black ;
+	Background : url(Background.gif) white ;
+	Background-Repeat : repeat-y ;
+}
+
+A:link {
+	Color : #000099 ;
+	Background-Color : white ;
+}
+
+A:visited {
+	Color : #000033 ;
+	Background-Color : white ;
+}
+
+A:hover {
+	Color : black ;
+	Background-Color : #AACCFF
+}
+
+A:active {
+	Color : #FF0000 ;
+	Background-Color : white ;
+}
+
+A:link img {
+        Border : none ;
+}
+
+A:visited img {
+        Border : none ;
+}
+
+A:hover img {
+        Border : none ;
+}
+
+A:active img {
+        Border : none ;
+}
+
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<PhotoOverlay>
+  <name><%NAME></name>
+  <description><%DESCRIPTION></description>
+  <Camera>
+    <longitude><%LON></longitude>
+    <latitude><%LAT></latitude>
+    <altitude><%ALT></altitude>
+    <heading>0</heading>
+    <tilt>90</tilt>
+    <roll>0</roll>
+  </Camera>
+  <Style>
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/kml/shapes/camera.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Icon>
+    <href><%IMAGEURL></href>
+  </Icon>
+  <shape><%SHAPE></shape>
+  <ViewVolume>
+    <near><%NEAR></near>
+    <leftFov><%LEFTFOV></leftFov>
+    <rightFov><%RIGHTFOV></rightFov>
+    <bottomFov><%BOTTOMFOV></bottomFov>
+    <topFov><%TOPFOV></topFov>
+  </ViewVolume>
+  <roll>0</roll>
+  <ImagePyramid>
+    <tileSize>256</tileSize>
+    <maxWidth><%MAXWIDTH></maxWidth>
+    <maxHeight><%MAXHEIGHT></maxHeight>
+    <gridOrigin>upperLeft</gridOrigin>
+  </ImagePyramid>
+  <Point>
+    <coordinates><%LON>,<%LAT></coordinates>
+  </Point>
+</PhotoOverlay>
+</Document>
+</kml>

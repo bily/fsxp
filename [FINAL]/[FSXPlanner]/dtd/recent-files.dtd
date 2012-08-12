@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This is the dtd file for the recent files xml file.
+-->
+
+<!--
+The recent-files element is the top-level element.  It contains zero or more recent-file elements.
+-->
+<!ELEMENT recent-files (recent-file*)>
+
+<!--
+The recent file element contains the name of a recently opened file.
+-->
+<!ELEMENT recent-file EMPTY>
+
+<!ATTLIST recent-file file CDATA #REQUIRED name CDATA #REQUIRED ident CDATA #REQUIRED>

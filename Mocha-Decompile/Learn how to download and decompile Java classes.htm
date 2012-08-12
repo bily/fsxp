@@ -1,0 +1,273 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="KEYWORDS" content="Java, learn, learn Java, Java tutorials, PureJava (tm), samples, tutorials, how do I, how to, Java how-to, learn applets, learn servlets, Java examples, servlet examples, applet examples, tips, Java tips, servlet help, applet help">
+
+
+<meta name="DESCRIPTION" content="Learn Java with our Pure Java (tm) tutorials. Learn how to create Java applets, applications, servlets, and CGI programs with Pure Java.  Help for Java developers/programmers with how-to articles, free source code, training, tutorials, examples, samples, and tips."><title>Learn Java: Learn how to download and decompile Java classes, part 2</title></head><body>
+
+<div align="center">
+<br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5530641073697401";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "304878";
+google_color_url = "304878";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="Learn%20how%20to%20download%20and%20decompile%20Java%20classes_files/show_ads.js">
+</script><iframe name="google_ads_frame" src="Learn%20how%20to%20download%20and%20decompile%20Java%20classes_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="90" scrolling="no" width="728"></iframe>
+
+</div>
+
+&nbsp;
+<p></p><center><b><font size="+2">Learn how to download applets and decompile Java class files - <i>Part 2</i></font></b>
+&nbsp;<br>
+Written by <br><a href="http://www.devdaily.com/java/edu/pj/">Developer's Daily Java Education Center</a></center><p></p>
+<p><b><font size="+1">Introduction</font></b>
+
+</p><p>In <a href="http://www.devdaily.com/java/edu/pj/pj010020/">our previous article</a>, we demonstrated
+a simple method that can be used to easily download the class files of
+Java applets. In this article we'll show you how to decompile the Java
+class, turning the <tt>.class</tt> file back into a <tt>.java</tt> source
+code file.
+<br>&nbsp;
+
+</p><p><b><font size="+1">Why do this?</font></b>
+
+</p><p>If you're just joining us in Part 2 of our series, I feel the need to
+explain why we're doing this series in the first place:
+</p><ol>
+<li>
+First, we're a Java educational center.&nbsp; Telling you the bad about Java
+as well as
+the good is also educational.&nbsp; Whether it's bad or good, it is truth.&nbsp;
+The fact is that other people can decompile your Java classes, and you
+need to know that, and it's helpful to know how they can do it.</li>
+
+<li>
+Second, and even more importantly, if you know how to decompile Java classes,
+you can also learn how to try stop it (assuming you're interested in stopping
+it).</li>
+</ol>
+<b><font size="+1"></font></b>
+
+<br>
+<p><b><font size="+1">Obtaining software to decompile Java class files</font></b>
+
+</p><p>To decompile a Java class file, you're going to need some software specially
+made for decompiling Java class files (also called <i>reverse-engineering</i>).&nbsp;
+In this article we're going to show you how to decompile Java class files
+with a software package that goes by the name of <b><i>Mocha</i></b>.
+
+</p><p>Mocha is probably not the best decompiling software available today,
+but it is one of the first packages available - if not the first - and
+it's also free.&nbsp; Mocha is written in Java, so you'll also need a copy
+of the Java JDK, or the JRE.
+
+</p><p><i><font size="+1">Step 1: Download Mocha</font></i>
+</p><ul>Assuming that you already have a copy of the Java JDK, the first step
+in the decompilation process is to download Mocha.&nbsp; <a href="http://www.brouhaha.com/%7Eeric/computers/mocha.html">Click
+here to download Mocha</a>.</ul>
+<i><font size="+1">Step 2: Install Mocha</font></i>
+<ul>After you've downloaded Mocha, install it in a directory according
+to the installation instructions that came with the Mocha software.&nbsp;
+At the time of this writing, the installation process simply consists of
+unpacking a ZIP file into a desired directory.
+<br>&nbsp;</ul>
+
+<div align="center">
+<br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5530641073697401";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "304878";
+google_color_url = "304878";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="Learn%20how%20to%20download%20and%20decompile%20Java%20classes_files/show_ads.js">
+</script><iframe name="google_ads_frame" src="Learn%20how%20to%20download%20and%20decompile%20Java%20classes_files/ads_002.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="90" scrolling="no" width="728"></iframe>
+
+</div>
+
+<b><font size="+1">Decompiling a Java class file</font></b>
+
+<p>In this article we're going to decompile the <tt>AnimatedAd.class</tt>
+Java class file we downloaded in <a href="http://www.devdaily.com/java/edu/pj/pj010020/">our first article</a>.&nbsp;
+If you're at all familiar with our web site, you might know that the <a href="http://www.devdaily.com/java/applets/AnimatedAd/AnimatedAd.java">original
+source code for this class file</a> is also available.&nbsp; This is good,
+because it gives us a chance to compare the original source code to the
+decompiled version of the source code.
+
+</p><p>If you're ready, let's begin the process of decompiling the class file.&nbsp;
+If you've installed Mocha properly, there's really very little to the process
+other than running Mocha.
+<br>&nbsp;
+
+</p><p><i><font size="+1">Step 1:&nbsp; Open a DOS or Unix window</font></i>
+</p><ul>Running Mocha is very simple.&nbsp; Assuming you're using a Windows
+system, just open a DOS window, and move to the directory where you installed
+Mocha.
+
+<p>If you're using a version of Unix, open a Unix command-line window and
+move to the Mocha installation directory.
+<br>&nbsp;</p></ul>
+<i><font size="+1">Step 2:&nbsp; Modify your <tt>CLASSPATH</tt> variable</font></i>
+<ul>In this step, modify your <tt>CLASSPATH</tt> environment variable to
+include the <tt>Mocha.zip</tt> file you just downloaded and installed.
+
+<p>For instance, using Visual Cafe 2.5 on a Windows95 computer system,
+I modified my <tt>CLASSPATH</tt> to look like this:
+<br>&nbsp;
+</p><ul><tt>set CLASSPATH=C:\Apps\Win95\Symantec\VisualCafe2.5\BIN\COMPONENTS\SYMBEANS.JAR;</tt>
+<br><tt>C:\Apps\Win95\Symantec\VisualCafe2.5\JAVA\LIB\CLASSES.ZIP;</tt>
+<br><tt>C:\Apps\Win95\Symantec\VisualCafe2.5\JAVA\LIB;</tt>
+<br><tt>C:\Temp\DevDaily\Java\Decompilers\Mocha.zip</tt>
+<br>&nbsp;</ul>
+This should all be one continuous line.&nbsp; (Actually, because my CLASSPATH
+is so long, I cheated and combined this step and the command from Step
+4 into a DOS batch file named <b><tt><a href="http://www.devdaily.com/java/edu/pj/pj010021/runmocha.bat">runmocha.bat</a></tt></b>.)
+<br>&nbsp;</ul>
+<i><font size="+1">Step 3:&nbsp; Copy the class file to the Mocha installation
+directory</font></i>
+<ul>If you haven't done so already, copy the <tt>AnimatedAd.class</tt>
+file into the Mocha installation directory.
+<br>&nbsp;</ul>
+<i><font size="+1">Step 4:&nbsp; Run the Mocha program</font></i>
+<ul>Once the <tt>CLASSPATH</tt> is set, you can run Mocha like this to
+decompile the <tt>AnimatedAd.class</tt> file:</ul>
+
+<ul>
+<ul><tt>java -classpath %CLASSPATH% mocha.Decompiler -v AnimatedAd.class</tt>
+<br>&nbsp;</ul>
+Notice that I included the <i><tt>-v</tt></i> option (verbose) to see a
+little more output than normal.&nbsp; It's not required, but it is helpful.
+
+<p>When Mocha runs, you'll see some output on your screen similar to <b>Figure
+1</b>.</p></ul>
+&nbsp;
+<table bgcolor="#dddddd" border="0" cellpadding="0" cellspacing="0" cols="1" width="100%">
+<tbody><tr>
+<td>
+<ul><tt>Decompiling AnimatedAd.class -&gt; AnimatedAd.mocha</tt>&nbsp;
+<br><tt>&nbsp;Method init....................................................................</tt>&nbsp;
+<br><tt>................................................................................</tt>&nbsp;
+<br><tt>................................................................................</tt>&nbsp;
+<br><tt>................................................................................</tt>&nbsp;
+<br><tt>................................................................................</tt>&nbsp;
+<br><tt>........................</tt>&nbsp;
+<br><tt>&nbsp;Method start................</tt>&nbsp;
+<br><tt>&nbsp;Method stop..............</tt>&nbsp;
+<br><tt>&nbsp;Method run.....................................................................</tt>&nbsp;
+<br><tt>.........................................................................</tt>&nbsp;
+<br><tt>&nbsp;Method mouseDown...............</tt>&nbsp;
+<br><tt>&nbsp;Method pause........</tt>&nbsp;
+<br><tt>&nbsp;Method drawMyString..............</tt>&nbsp;
+<br><tt>&nbsp;Method paint................</tt>&nbsp;
+<br><tt>&nbsp;Method numStringsUsed.........................</tt>&nbsp;
+<br><tt>&nbsp;Method getRandomInt.................................................</tt>&nbsp;
+<br><tt>&nbsp;Method &lt;init&gt;.............................</tt>&nbsp;
+<br>&nbsp;</ul>
+</td>
+</tr>
+</tbody></table>
+&nbsp;
+<table cellpadding="0" cellspacing="0">
+<tbody><tr align="left" valign="top">
+<td align="left" valign="top"><b><font color="#000099">Figure 1:</font></b></td>
+
+<td align="left" valign="top">This is the output Mocha generated and printed
+to my DOS window.</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+</tr>
+</tbody></table>
+&nbsp;
+
+<p><b><font size="+1">The decompiled source code</font></b>
+
+</p><p>When Mocha runs, it also creates an output file named <i><tt>AnimatedAd.mocha</tt></i>.&nbsp;
+This file contains the decompiled Java source code - the source code it
+created by reading the <tt>AnimatedAd.class</tt> binary file.
+
+</p><p>The <i><tt>AnimatedAd.mocha</tt></i> file is too large to list here,
+but you can <a href="http://www.devdaily.com/java/edu/pj/pj010021/AnimatedAd.mocha">click here to view the reverse-engineered
+source code</a>.
+
+</p><p>As a point of comparison, you can <a href="http://www.devdaily.com/java/applets/AnimatedAd/AnimatedAd.java">click
+here to view the original <i><tt>AnimatedAd.java</tt></i> source code</a>.
+<br>&nbsp;
+
+</p><div align="center">
+<br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5530641073697401";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "304878";
+google_color_url = "304878";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="Learn%20how%20to%20download%20and%20decompile%20Java%20classes_files/show_ads.js">
+</script><iframe name="google_ads_frame" src="Learn%20how%20to%20download%20and%20decompile%20Java%20classes_files/ads_003.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="90" scrolling="no" width="728"></iframe>
+
+</div>
+
+<br>&nbsp;
+<br><b><font size="+1">What's next</font></b>
+
+<p>As you've seen from this example, reverse-engineering a Java class file
+into a Java source code file appears to be pretty easy.&nbsp; But what
+about the quality of the reverse-engineering process?&nbsp; In our next
+article, we'll evaluate the results of the decompiling process by comparing
+our original source code to the decompiled code.&nbsp; We'll also discuss
+other modern tools that can be used for reverse engineering Java class
+files.&nbsp; Mocha has a few bugs that you may not see immediately, so
+we'll introduce a couple of tools that have followed Mocha's path.
+
+</p><p>Finally, at the conclusion of our series, we'll show you how you can
+use tools to protect your code from others that may want to try their hand
+at reverse-engineering your class files.
+
+</p><p>Return to our <a href="http://www.devdaily.com/java/edu/pj/">Developer's Daily Pure Java Education Center</a><br>
+Return to our <a href="http://www.devdaily.com/index.shtml">Developer's Daily Home Page</a></p>
+
+<p><em>(Editor's Note: The process of decompiling Java class files belonging to other
+businesses or individuals may be illegal in your city, state, or country.  
+Frankly, I don't know for sure, because, to coin a phrase from Star Trek's 
+<sup><font size="-2">(TM)</font></sup> Doctor McCoy, "<em>I'm an editor, 
+not a lawyer.</em>" In any case, this series of articles is not written to
+encourage that practice.  These articles are presented only so you can
+learn to protect your own Java class files from reverse engineering.)</em></p>
+
+
+<p>
+<br>
+
+</p><p align="center"><font face="Verdana,Arial" size="2">
+</font><a href="http://www.devdaily.com/blog/"><font face="Verdana,Arial" size="2"><img src="Learn%20how%20to%20download%20and%20decompile%20Java%20classes_files/blog.gif" align="middle" border="0"><br>Do the BLOG</font></a></p>
+
+<p align="center"><font color="#000000" face="Verdana,Arial" size="1">Copyright � 1998-2007 DevDaily Interactive, Inc.<br>
+All Rights Reserved.</font></p>
+
+<p>&nbsp;</p>
+
+</body></html>

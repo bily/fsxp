@@ -1,0 +1,101 @@
+
+<!--  Enhancement for 1.2.1 -->
+<!--  Local Variable Naming Configuration for -g:none case -->
+<!--  Please read the below before addding any custom type -->
+
+<!-- primitive   : indicates is variable is a primitve type          -->
+<!-- default_pkg : indicates no package for class  of variable       -->
+<!-- pkg         : indicates package for class of variable           -->
+<!-- className   : indicates typeName of variable                    -->
+<!-- prefix      : indicates your choice of prefix for this variable -->
+<!--NOTE:  In the absence of pkg , it is mandatory to set default_pkg to true for prefix to be picked up -->
+<variables>
+
+
+
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Object" prefix="object">
+	</variable>
+
+
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="StringBuffer" prefix="buffer">
+	</variable>
+	
+
+    <variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Integer" prefix="anInteger">
+	</variable>
+	
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Long" prefix="aLong">
+	</variable>
+	
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Double" prefix="aDouble">
+	</variable>	
+
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Float" prefix="aFloat">
+	</variable>
+	
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Byte" prefix="aByte">
+	</variable>
+	
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Boolean" prefix="aBoolean">
+	</variable>
+	
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Short" prefix="aShort">
+	</variable>
+	
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Char" prefix="aChar">
+	</variable>
+	
+	
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="Integer" prefix="anInteger">
+	</variable>
+	
+
+	<variable primitive="false" default_pkg="false" pkg="java.lang"
+		className="String" prefix="string">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="int"
+		prefix="int">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="byte"
+		prefix="byte">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="short"
+		prefix="short">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="char"
+		prefix="char">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="long"
+		prefix="long">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="float"
+		prefix="float">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="double"
+		prefix="double">
+	</variable>
+
+	<variable primitive="true" default_pkg="" pkg="" className="boolean"
+		prefix="boolean">
+	</variable>
+
+
+</variables>

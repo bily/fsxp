@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This is the DTD file for the update item file.
+-->
+
+<!--
+The top element is the update-item element and it contains zero or more update-action elements.
+-->
+<!ELEMENT update-item (update-action*)>
+
+<!--
+The update-action element contains the information about the specific update.  It has a type
+attribute which contains the type of the update.  It contains one or more hashmap-element
+elements.
+-->
+<!ELEMENT update-action (hashmap-element+)>
+
+<!ATTLIST update-action type CDATA #REQUIRED>
+
+<!--
+The hashmap-element contains information about a part of the update.  It is an empty element.
+It has a name attribute which contains the name of this update part.  It contains a value
+attribute which contains the corrisponding value.
+-->
+<!ELEMENT hashmap-element EMPTY>
+
+<!ATTLIST hashmap-element name CDATA #REQUIRED value CDATA #REQUIRED>

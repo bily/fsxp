@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This is the DTD file for the updates file.
+-->
+
+<!--
+The top element is the updates element and it contains a reg element and zero or more update-item
+elements.
+-->
+<!ELEMENT updates (update-item*)>
+
+<!--
+The update-item element contains information on a specific update item that is available.
+It contains one update-id element, one type element, one desc element, one size element,
+one date element and zero or more dependency elements.
+-->
+<!ELEMENT update-item (update-id, type, desc, size, date, dependency*)>
+
+<!--
+The update-id element contains the id of the update item.
+-->
+<!ELEMENT update-id (#PCDATA)>
+
+<!--
+The type element contains the type of the update item.
+-->
+<!ELEMENT type (#PCDATA)>
+
+<!--
+The desc element contains the description of the update item.
+-->
+<!ELEMENT desc (#PCDATA)>
+
+<!--
+The size element contains the size of the update item.
+-->
+<!ELEMENT size (#PCDATA)>
+
+<!--
+The date element contains the date of the update item.
+-->
+<!ELEMENT date (#PCDATA)>
+
+<!--
+The dependency element contains the ID of an update item that this update item is
+dependent upon to run.
+-->
+<!ELEMENT dependency (#PCDATA)>

@@ -1,0 +1,133 @@
+
+					
+					jdec : java decompiler
+				  Licenced Under: GPL 
+				  Readme File
+
+
+JDec: Java Decompiler
+Project Home Site: http://sourceforge.net/projects/jdec
+
+This tool has been written in Core Java and Java Swing For The UI part.
+This code is distributed under the GNU GENERAL PUBLIC LICENSE(GPL, see www.gnu.org).  
+See the file "COPYING" for details.
+
+Getting Started
+---------------
+Please See Install File For More Details
+
+
+
+How Do I Run JDec
+---------------
+Double use the appropriate script file to launch jdec either
+in UI or console mode
+
+
+
+
+
+General Note on Decompiler:
+-------------------------
+
+A decompiler's role as the user is familiar with is only concerned with
+is only responsible for reading the bytecodes produced the compiler.
+As there are different interpretaions for the same piece of java code
+it is  not always possible to reverse the bytecode to produce the
+exact java File from which .class File was produced.
+
+***************** NOTE *********************************
+
+Also be aware that in some cases,licences prevent you the end user
+from decompiling or reverse enginneering class files.
+
+So please use with care. That said have fun and PLEASE do not
+forget - take some time off to report bugs/ enhancements which
+you find useful . Your feedback whether good or bad will
+always be given due consideration.
+
+
+Thanks for downlaoding jdec
+
+Swaroop belur
+-project admin
+swaroop.belur@gmail.com
+
+
+
+
+
+
+
+
+
+
+Features of Jdec
+----------------
+
+1> Decompile Classes
+2> Decompile Inner Classes
+3> Decompile Jars
+4> Show Constant Pool
+5> Show LocalVariables if class has been compiled with -g
+6> Show ExceptionTable Details
+7> General Class Details like version number and other small details.
+8> Basic Editor Features.
+9> Useful utilities like compiling and running java files.
+10>Syntax Highlighting for decompiled code.
+11> Decompiler Filter options
+
+
+
+
+Known Bugs Or limitations
+-------------------------
+
+1> In this release ternary operations work properly when used
+ in constructors.In all other cases,jdec tries to construct 
+ if constructs for ternary operations.
+ In this release ternary operations are not always decompiled
+ properly.This feature has some bugs.(when used as arguments
+ in method calls apart from constructors)
+
+
+
+2>Right Now Annonymous Inner classes are not inlined.
+JDec can decompile inner classes to any depth , BUT
+it does NOT inline the class in this release. Intention
+is to make it work soon.
+
+
+3>Shortcut operators sometimes are not decompiled properly.
+This feature was absent in previous releases.If shortcut
+operator is used in ternary operartions in a new call
+then jdec may not decompile the ternary opertion properly.
+
+
+4>Jdec has been tested till Java version 1.4.2_11 version
+In all probability it should work fine for any 1.4 Java
+Release
+
+
+[NOTE] There may be other bug in this release. Please feel
+free to report any bug. It will be helpful if the user
+can upload the .class File also.
+
+
+
+Bug Parade
+----------
+	Please report the bugs in the bugs report page present in sourceforge site
+	at http://sourceforge.net/projects/jdec
+	
+	[NOTE: It is helpful if the .class file can be uploaded for
+	which the bug was reported]
+	
+
+
+
+
+
+
+
+

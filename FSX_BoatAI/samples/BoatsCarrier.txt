@@ -1,0 +1,3 @@
+AC#1,25,"veh_carrier01_high_detail_sm"
+AC#2,25,"VEH_cruiser01"
+AC#3,25,"VEH_destroyer01"

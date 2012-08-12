@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Flight Simulator Ships Project</title>
+  <meta content="lc0277" name="author">
+  <meta content="Flight Simulator X FSX Ships Boat AI"
+ name="description">
+</head>
+<body style="background-color: rgb(0, 230, 230); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#551a8b">
+<table style="width: 100%; text-align: left;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <h1><span style="color: rgb(255, 255, 255);"><img alt="Logo"
+ title="Logo" src="logo.png" style="width: 143px; height: 179px;"></span></h1>
+      </td>
+      <td style="vertical-align: top;">
+      <h1><span style="color: rgb(255, 255, 255);">Flight Simulator X -
+Boat Traffic Compiler<br>
+      </span></h1>
+      <br>
+      <span style="font-style: italic;">bringing sea life to FSX !</span><br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+AI Boat Traffic Compiler (AIBTC) is a software to create, edit and
+compile
+schedules for
+ships in Flight Simulator X. It is inspired by the venerable TTools of
+Lee Swordy to create AI aircrafts schedules. A prior knowledge of
+aircraft AI traffic is needed to understand this document. A good
+source of documentation is the help file of <a
+ href="http://www.simviation.com/fs2004utilities1.htm">TTools 2.0</a><br>
+<br>
+<br>
+A big thank you to <span style="font-weight: bold;">Lee Swordy</span>
+who published the specification of the BGL traffic files which was very
+useful to create this tool.<br>
+<br>
+<br>
+<ol id="mozToc">
+<!--mozToc h4 1 h5 2--><li><a href="#mozTocId667617">How boats works in
+FSX ? (technical) </a></li>
+  <li><a href="#mozTocId19810">Download / Installation </a></li>
+  <li><a href="#mozTocId76194">Conceptual differences between boats and
+aircraft traffic</a></li>
+  <li><a href="#mozTocId575471">Text traffic file formats</a>
+    <ol>
+      <li><a href="#mozTocId918707">The boats file </a></li>
+      <li><a href="#mozTocId33958">The routes file (CSV) </a></li>
+      <li><a href="#mozTocId211587">The routes file (KML/KMZ) </a></li>
+      <li><a href="#mozTocId105769">Schedule file (Plans*.txt)</a></li>
+    </ol>
+  </li>
+  <li><a href="#mozTocId576903">Using the software</a>
+    <ol>
+      <li><a href="#mozTocId371882">Example traffic</a></li>
+    </ol>
+  </li>
+</ol>
+<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<h4><a class="mozTocH4" name="mozTocId667617"></a><a name="howboats"></a>How
+boats works in FSX ? (technical)<br>
+</h4>
+There are multiple ways to get sea traffic in FSX:<br>
+<ol>
+  <li><span style="text-decoration: underline;">Static boats.</span>
+There are some static boats in main seaports around the world. As said,
+they are only static, they don't move. Their density depends on the "<span
+ style="font-style: italic;">scenery complexity</span>" ruler. You can
+add some static boats using standard scenery tools, like Rwy12 or the
+object placement tool included with the mission SDK (only in FSX
+deluxe).<br>
+  </li>
+  <li><span style="text-decoration: underline;">LivingWorld boats:</span>
+    <span style="font-style: italic;">LivingWorld</span> is the name of
+the FSX subsystem that deals with vehicles additions, like cars,
+airports ground vehicles and some boats. In FSX, it handles only inland
+and leisure boats. The boats managed by LivingWorld have no schedules
+or known paths. They just moves randomly near coastlines and on lakes.
+You can edit the density of LW boats using the "<span
+ style="font-style: italic;">Leisure boats</span>" ruler on the <span
+ style="font-style: italic;">"Traffic"</span> tab, but not manage each
+boat separately.<br clear="all">
+    <br>
+You can also change the models of the boats used by editing the <a
+ href="http://lc0277.nerim.net/livingworld/">LWcfg.xml
+configuration file</a>. Note that you must recompile this file to
+SPB format after editing. The concepts used by LivingWorld traffic
+generation is very similar to Autogen features, so I advise you to read
+autogen and terrain documentations included in the SDK (don't search
+documentation about LWcfg.xml it is yet undocumented)<br>
+  </li>
+  <li><span style="text-decoration: underline;">Mission or
+SimConnect-managed
+boats</span> : these boats are created ang managed by the mission
+system or some kind of third-party add-on using simconnect. The
+developper must include a list of waypoints for each moving object he
+wants to include in the simulator. These boats are thus restricted to
+very special situations and not available in a general flying
+context.<br>
+  </li>
+  <li><span style="text-decoration: underline;">AI boats:</span> the AI
+boats (Artificial Intelligence) are managed by the same AI system that
+provides aerial traffic since FS2002. In FSX, it can also handles
+boats. The features offfered by AI boats are very powerful : you can
+add your own models, define accurate schedules and routes to follow.
+The AI Boat Traffic Compiler Tool address only this type of traffic.<br>
+  </li>
+</ol>
+<hr style="width: 100%; height: 2px;"><br>
+<h4><a class="mozTocH4" name="mozTocId19810"></a><a name="download"></a>Download
+/ Installation<br>
+</h4>
+Last version : 0.1 release date: 4 december 2006. <a href="aibtc01.zip">Download
+here.</a> You must have Java 5.0
+installed on your computer before. <a
+ href="http://www.java.com/getjava/">You can download it free here</a>.
+<br>
+Unzip the file to a temporary directory and double click on <span
+ style="font-weight: bold;">aibtc.jar.</span> If JRE 5.0 is correctly
+installed, the
+application should be launched&nbsp; automatically, otherwise please
+verify your java installation. <br>
+When you run the application for the first time, you should set up the
+correct paths as they are not automatically detected. Choose menu <span
+ style="font-style: italic;">Files-&gt;Set source folder</span> to
+change the path where you want to store the text files and working
+files. <br>
+Set up the traffic installation path with<span
+ style="font-style: italic;"><span style="font-style: italic;"> </span></span>menu<span
+ style="font-style: italic;"><span style="font-style: italic;"></span>
+Files-&gt;Set destination folder</span>. You should locate your FSX
+installation (generally c:\program files\microsoft games\flight
+simulator x) and then change to Scenery\World\scenery subdirectory. If
+you choose a different directory, your traffic files will not be
+visible by FSX.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<h4><a class="mozTocH4" name="mozTocId76194"></a><a name="diffs"></a>Conceptual
+differences between boats and aircraft traffic</h4>
+Globally, all the facts needed to create and understand boat traffic
+are the same as for aircrafts. However slight differences should be
+noted:<br>
+<ul>
+  <li>Boats do not travel between two ports, but follow a route
+instead. All points on the route must be specified while creating the
+traffic. There are no known limitation on the number of points. If you
+create a traffic that places two boats on the same route, they will not
+collide or sink, but ignore themselves.<br>
+  </li>
+  <li>When a boat arrive at the last point of a route, it can stay at
+this point until the departure of the next order (FERRY type) or can
+dispatch on a 300 meters circle around the last point (CARGO type). The
+cargo type allows to have than one boat at a terminal port at the same
+time. When designing cargo boat routes, it is recommended to place
+endpoints at least 300 meters away from land.<br>
+  </li>
+  <li>Boat plans can have more than two legs in their orders, however
+if more than two different routes are used, the traffic may cause FSX
+to crash</li>
+  <li>Schedules can be repeated on a periodic basis specified by the
+user. The frequency availables are the same as for aircrafts (1 hour -
+1 week) plus 2 weeks, 5 weeks and 8 weeks to allow longer travels</li>
+  <li>Aircraft-specific features are discarded (IFR/VFR, touch'n'goes,
+flight numbers, altitudes)</li>
+  <li>No custom schedules can be used with the TrafficDatabaseBuilder
+tool shipped with Flight Simulator X. That's why AIBTC was developed.<br>
+  </li>
+</ul>
+<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<h4><a class="mozTocH4" name="mozTocId575471"></a><a name="text"></a>Text
+traffic file formats</h4>
+Boat traffic text files are very similar to AI aircraft. There are 3
+distinct files needed to compile a valid traffic:<br>
+<br>
+<h5><a class="mozTocH5" name="mozTocId918707"></a><span
+ style="text-decoration: underline;">The boats file </span></h5>
+(Boats*.txt).&nbsp; It specifies to model names of boats to use in this
+traffic. The format is the same as for aircrafts :<br>
+<br>
+<span style="font-style: italic;">AC#7,25,"VEH_water_cargoG_sm"<br>
+<br>
+</span>
+<ul>
+  <li>AC#7 introduce the id number of this entry. Please use different
+number for each entries. You can also use the BT# prefix to make a
+distinction between ships and aircrafts</li>
+  <li>25 is the boat speed. Acceptable values are around 15 and 25. <br>
+  </li>
+  <li>VEH_water_cargoG_sm is the model name. The model name could be
+found in the sim.cfg of each boats directory in the SimObjects\Boats
+directory under the FSX installation. Each <span
+ style="font-style: italic;">title=</span> line specifiy a different
+model name. An invalid name will cause traffic to not appear<br>
+  </li>
+</ul>
+<br style="text-decoration: underline;">
+<span style="text-decoration: underline;"><br>
+<br>
+</span>
+<h5><a class="mozTocH5" name="mozTocId33958"></a><span
+ style="text-decoration: underline;">The routes file (CSV)</span> </h5>
+A basic file format for boat routes is specified in the Microsoft
+Flight Simulator X SDK. You can use it to compile your traffic. A route
+has the following format:<br>
+<br>
+<span style="font-style: italic;">4721,483,482</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp; -49.92155,
+13.0301</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp; -47.3103,
+11.4020<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -41.301, 19.90211<br
+ style="font-style: italic;">
+</span><span style="font-style: italic;">}</span><br
+ style="font-style: italic;">
+<br style="font-style: italic;">
+<ul>
+  <li>The first number (4721) is the identifier of the route. It should
+be unique in the file and be a number<br>
+  </li>
+  <li>The other numbers are terminal identifiers. They are not used by
+the traffic compiler</li>
+  <li>Follows a block of latitude, longitude pairs. At least two points
+are needed in a route. Only decimal position is supported.
+Degree-Minute-Seconds notations are not supported yet</li>
+</ul>
+The order of the points on a route is important. A route is two-way as
+you can specify the travel sense in the boat orders. The <span
+ style="font-style: italic;">canonical</span> way is from the first
+point defined in a block to the last, the <span
+ style="font-style: italic;">reverse</span> is from the last to the
+first.<br>
+Alternatively, you can use a KML file to specify routes instead of a
+CSV : <br>
+<span style="text-decoration: underline;"><br>
+<br>
+</span>
+<h5><a class="mozTocH5" name="mozTocId211587"></a><span
+ style="text-decoration: underline;">The routes file (KML/KMZ)</span><br>
+</h5>
+<br>
+(Routes*.kml) The main format used by&nbsp; AIBTC is the <a
+ href="http://earth.google.com">GoogleEarth</a> KML format. It can be
+viewed and edited using free versions of Google Earth, so it is more
+practical to use this format for routes. Only one route file format
+(KML or CSV) can be used to compile a route<br>
+<br>
+KML is more stable than KMZ. If you encounter problem using KMZ routes,
+please save your file as KML instead.<br>
+All paths stored in a KML/KMZ file will be parsed to extract the
+routes, however only those referenced by plans will be compiled in the
+BGL. <br>
+The path name saved in Google Earth is used as the identifier of the
+route. If a name is non-numerical, the route will be skipped and could
+not be used for defining plans. <br>
+Path informations other than latitude and longitude are not used. If
+some parse errors are experienced with KML files, it is advised to
+remove all styles informations and keep only points coordinates.<br>
+<br>
+Paths in Google Earth are shown undirected, however the canonical
+direction is from the first point added to the last point.<br>
+<br>
+<span style="text-decoration: underline;"><br>
+<br>
+</span>
+<h5><a class="mozTocH5" name="mozTocId105769"></a><span
+ style="text-decoration: underline;">Schedule file (Plans*.txt)</span></h5>
+Each line of the file specifiy a different boat. Lines starting with
+'//' are comments and not read by the program. <br>
+The line is split using the comma as a field separator. A plan starts
+by 4 fields then is followed by the list of plan orders (at least two)<span
+ style="text-decoration: underline;"><span
+ style="text-decoration: underline;"></span><br
+ style="text-decoration: underline;">
+</span><br>
+<span style="font-style: italic;">AC#14,B60264,60%,2Hr<br>
+&nbsp;&nbsp; <br>
+</span>
+<ul>
+  <li>AC#14 define the boat model identifier. Use the same identifiers
+as specified in Boats.txt</li>
+  <li>B60264 is the boat name. It is not displayed or used by the
+traffic, but could help to distinguish plans. Only characters valid for
+an aircraft registration could be used here. Avoid punctuation marks
+and use no more than 10 leters.</li>
+  <li>60% is the minimum traffic percent that must be configured to see
+this boat in the simulator</li>
+  <li>2Hr is the repeat frequency. You can specifiy it as a number of
+hours or weeks, e.g. 1344Hr or 8WEEK</li>
+</ul>
+In each order, a departure time is given. The departure is relative
+from the start of the period. If a plan has a 4 hours periods, then an
+order that starts at 1:45 will be repeated at 5:45, 9:45, 13:45, 17:45,
+and 21:45 each day. Although all these times could be used to define a
+plan, the first one (between 0:00 and 4:00 the end of the period)
+should be used.<br>
+<br>
+For periods that span multiple days, a day number is also used,
+followed by a '/' before the time. Day numbers starts at 0. For 1WEEK
+periods, 0 means Monday, so for instance 4/15:20:40 means 15:20:40 on
+friday.<br>
+For periods that span multiple weeks, the day number 0 is (apparently)
+the first monday of the year, though it remains unsure.<br>
+<span style="font-style: italic;"><br>
+</span><span style="font-style: italic;"><span
+ style="font-style: italic;"><span style="font-style: italic;"></span></span></span>An
+order consists in 5 comma separated fields:<span
+ style="font-style: italic;"><span style="font-style: italic;"><span
+ style="font-style: italic;"></span></span><br>
+</span><span style="font-style: italic;"></span><br>
+<span style="font-style: italic;">00:18:19,00:24:06,1754,reverse,ferry<br>
+</span>
+<ol>
+  <li>The first field is the departure time or day/time if period is
+more than 24 hours. The time is always GMT. <br>
+  </li>
+  <li>The second field the arrival time. It is not used by the program
+since the arrival time is recalculated based on the route length and
+the boat speed. When a file is compiled, calculated arrival times are
+inserted back in the file. It's generally a good idea to check the
+calculated arrival time to see if the next leg does not starts before
+the arrival of the current leg. Otherwise the boat may conflict and not
+appear at correct times.<br>
+  </li>
+  <li>1754 is the route number, as defined by the Boats.KML or
+Boats.CSV file. Only numerical identifiers are supported</li>
+  <li>The fourth field is a boolean indicating the travel direction on
+the route. If it is marked <span style="font-style: italic;">reverse</span>,
+then the route is followed from the last point to its first point. Any
+other word in this position means normal direction</li>
+  <li>The last flag concern terminal parking type. As said before, a
+boat marked FERRY will stop at the endpoint of the route. The default
+behaviour is not FERRY, so any other word in the leg definition will
+cause the boat to find a parking spot on a circle around the endpoint.<br>
+  </li>
+</ol>
+<br>
+<br>
+When designing flight plans, users should be very careful to the order
+and directions of the legs. Like aircrafts schedules, a boat schedule
+must loop back to its first point before the end of its period. However
+improper route definitions and direction may cause the circuit to
+break. AIBTC check circuit continuity and errors.<br>
+A complete plan definition looks like this:<br>
+<span style="font-style: italic;"><br>
+&nbsp;
+AC#14,B60264,60%,2Hr,00:18:19,00:24:06,1754,reverse,ferry,01:18:19,01:24:06,1754,normal,ferry</span><br
+ style="font-style: italic;">
+<br>
+Note that the plan use only one route with one leg marked as "normal"
+and the other as "reverse". This is the safest way of creating a boat
+plan. Due to some limitations in the AI subsystem, no more than two
+different routes (not including direction) could be used in one plan.
+The contrary may cause FSX to crash.<br>
+You can fortunately have more than two orders provided they use only
+two routes and makes a correct closed circuit.<br>
+<br>
+<span style="font-style: italic;"><br>
+<span style="font-style: italic;"></span></span><span
+ style="font-style: italic;"><br>
+</span>
+<hr style="width: 100%; height: 2px;"><br>
+<h4><a class="mozTocH4" name="mozTocId576903"></a><a name="using"></a>Using
+the software<br>
+</h4>
+Users familiar with the TTools 2.0 graphical interface will have no
+problems using AIBTC:<br>
+<br>
+<img alt="screenshot" title="screenshot" src="aibtc1.jpg"
+ style="width: 640px; height: 500px;"><br>
+<br>
+<br>
+First, path settings should be set correctly using the <span
+ style="font-style: italic;">Files</span> menu. Left and right file
+lists will only show file types appropriate for an operation
+(TXT/CSV/KML/KMZ files for compilation and BGL for decompilation). <br>
+<br>
+To compile a traffic, select one of your text files on the left panel.
+Other text files needed for the compilation will be automatically
+selected base on the file names. If not please make sure that your
+traffic files are all named with the same suffix:&nbsp;
+BoatsProject.txt RoutesProject.kml PlansProject.txt<br>
+Click on the <span style="font-style: italic;">compile</span> button
+and the traffic BGL will be generated. The output directory must be
+correctly set to the FSX Scenery/World/scenery directory.<br>
+<br>
+To decompile a traffic, select a traffic file (bgl) and click on <span
+ style="font-style: italic;">Decompile</span>. 3 text files will be
+generated in the source directory.<br>
+<br>
+Actually no other features or command line arguments are supported by
+AIBTC.<br>
+<br>
+<h5><a class="mozTocH4" name="mozTocId371882"></a>Example traffic</h5>
+An example traffic is providen in the "Samples" subdirectory of AIBTC.
+It contains the source of an example aircraft carrier strike group. The
+ships depart Norfolk at 16:50Z and go to Napoli. The period of the
+traffic is 8 weeks, meaning that you can see the group departing at the
+following dates:<br>
+<ul>
+  <li>5 January 2006</li>
+  <li>2 March 2006</li>
+  <li>27 April 2006</li>
+  <li>22 June 2006</li>
+  <li>17 August 2006</li>
+  <li>12 October 2006</li>
+  <li>7 December 2006</li>
+</ul>
+<br>
+If you experience problem, for example traffic not appearing; a good
+debugging tool is the TrafficExplorer toolbox. It can be installed with
+the FSX SDK. To activate it, edit the <span style="font-style: italic;">dll.xml
+</span>file situated in <span style="font-style: italic;">Document and
+settings\User\Application Data\Microsoft\FSX</span> and change the <span
+ style="font-style: italic;">Disabled</span> status to <span
+ style="font-weight: bold;">false</span> in the configuration block of
+TrafficToolbox. <br>
+In the traffic explorer or map, uncheck the <span
+ style="font-style: italic;">aircraft only</span> option to see all
+boats.<br>
+<br>
+<br>
+<br>
+<br>
+<hr style="width: 100%; height: 2px;">
+<pre>Last updated 4-Dec-2006</pre>
+<h1><br>
+<span style="color: rgb(255, 255, 255);"></span></h1>
+</body>
+</html>

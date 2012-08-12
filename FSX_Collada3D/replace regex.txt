@@ -1,0 +1,11 @@
+final class\s+([a-z0-9]+)\s+extends Enum
+enum \1 { /*
+
+\$VALUES\s*=\s*\(new\s*([a-z0-9]+)\[\]\s*{
+*/
+
+^        }\);$
+^    }$
+
+for SourceAgain:
+Warning+\s+#2008:+\s+([a-z0-9 /$.]+)

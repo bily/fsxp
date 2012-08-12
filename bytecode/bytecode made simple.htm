@@ -1,0 +1,236 @@
+<html><head><title>Print Story</title>
+
+<link rel="STYLESHEET" type="text/css" href="bytecode%20made%20simple_files/css.css">
+<script>
+function printArticle() {
+	if (window.print) {
+		setTimeout('window.print();',200);
+	}else if (navigator.userAgent.toLowerCase().indexOf("mac") != -1) {
+		alert("Press 'CMD+p' on your keyboard to print article.");
+	} else {
+		alert("Press 'Ctrl+p' on your keyboard to print article.")
+	}
+}
+</script></head><body style="margin: 15px;">
+
+<table width="100%">
+<tbody><tr>
+  <td><img src="bytecode%20made%20simple_files/jdj-mag-logo-1451.gif" alt="" border="0">
+  </td>
+  <td align="right"><a href="#" onclick="window.close(); return false;">Close Window</a>
+  <p>
+  <a href="#" onclick="printArticle(); return false;">Print Story</a>
+  </p></td>
+</tr>
+</tbody></table>
+
+<h1>Javassist: Java Bytecode Engineering Made Simple</h1>
+
+
+<div class="storybody">
+
+  
+
+  
+  <p>Javassist is a powerful new
+library in the field of bytecode engineering. It allows developers to
+add a new method to a compiled class, modify a method body, and so
+forth. Unlike other similar libraries, Javassist enables this without
+knowledge of Java bytecode or the structure of a class file. </p><p>Bytecode engineering is used to manipulate and modify compiled
+Java classes and to programmatically create new classes. This
+engineering can happen either at runtime or at compile time. Some
+technologies use bytecode manipulation to optimize or enhance existing
+Java classes. Other technologies use it to make themselves easier to
+use or to avoid cumbersome code generators. For instance, the JDO 1.0
+(Java Data Objects) specification requires bytecode enhancement of
+precompiled Java to add database persistence code to simple Java
+classes. In Aspect-Oriented Programming, some of the new frameworks use
+bytecode engineering to enhance Java classes with cross-cutting
+functionality. EJB containers, like JBoss, dramatically speed up the
+development cycle by dynamically creating Java classes at runtime to
+avoid the costly code generation/precompilation step required by EJBs.
+Even the JDK does bytecode manipulation within its
+java.lang.reflect.Proxy class. </p><p>Bytecode manipulation has been a complex and often
+unacceptable task for framework developers because of the huge
+implementation costs. Learning bytecode is very similar to learning an
+assembly language. The learning curve can be very steep for developers.
+Not only that but code written to engineer bytecode is a challenge to
+maintain, as it's difficult to read and follow. Javassist is a library
+for simplifying bytecode manipulation. It allows developers to fully
+exploit bytecode manipulation with little or no knowledge of bytecode,
+giving them a degree of fine-grained control. </p><p><strong>API Parallel to the Reflection API</strong><br>The
+first part of the Javassist API is similar to the Java Reflection API.
+It allows you to view the structure of a Java class before it is loaded
+by the ClassLoader. It includes CtClass, CtMethod, and CtField classes
+as the Reflection API does java.lang.Class, java.lang.reflect.Method,
+and Field. These classes represent a class, a method, and a field that
+have not been loaded yet. They provide a number of methods parallel to
+the Reflection API, for example, getName, getSuperclass, getMethods,
+getSignature, and so on. The following code reads
+org.geometry.Point.class, analyzes the definition, and prints the name
+of the super class (in this article, we always assume that the
+javassist.* packages are imported): </p><p><font color="#800000">1. ClassPool pool = ClassPool.getDefault();<br>2. CtClass pt = pool.get("org.geometry.Point");<br>3. System.out.println(pt.getSuperclass().getName()); </font>
+</p><p>The ClassPool object is a factory of CtClass objects. It
+searches for a class file in the specified class path and creates a
+CtClass object as a singleton for each class. The get method in
+ClassPool returns the CtClass object representing the class with the
+given name. </p><p>The Javassist API does not provide methods for creating a new
+instance (the newInstance method), invoking a method (the invoke
+method), or accessing a field value (the get and set methods) since
+CtClass objects represent classes that have not been loaded. On the
+other hand, the API provides methods for changing class definitions.
+For example, setSuperclass in CtClass changes the super class of the
+class. The reflection API does not support such changes. For example: </p><p><font color="#800000">4. pt.setSuperclass(pool.get("Figure")); </font>
+</p><p>This modifies the definition of the Point class so that it
+extends the Figure class. For consistency, this example assumes that
+the Figure class is compatible with the original super class. </p><p>Adding a new method to the Point class is also possible: 
+</p><p><font color="#800000">5. CtMethod m = CtNewMethod.make("public int xmove(int dx) { x += dx; }", pt);<br>6. pt.addMethod(m); </font>
+</p><p>The CtMethod object that represents the added method is created
+from the given source text. Developers do not have to write a sequence
+of virtual machine instructions by hand. Instead, Javassist compiles
+the given source text in Java with a custom compiler included in
+Javassist. </p><p>Finally, to reflect all the changes above, the writeFile method is called: 
+</p><p><font color="#800000">7. pt.writeFile(); </font>
+</p><p>The writeFile method in CtClass writes the modified definition
+of the class to a class file. Javassist can work with a ClassLoader, as
+we'll discuss later. </p><p>Javassist is not the first class library for writing a
+bytecode translator. For example, Jakarta BCEL is a popular library for
+bytecode engineering. However, you can't use Jakarta BCEL with
+source-level vocabulary. If you add a new method to a compiled class,
+you must specify a method body by a sequence of bytecode instructions.
+On the other hand, Javassist allows you to specify it by source text as
+shown above. </p><p><strong>Instrumenting a Method Body</strong><br>The
+instrumentation of method bodies can also be described with
+source-level vocabulary. Developers do not have to directly manipulate
+virtual machine instructions. Although the range is limited, Javassist
+enables various typical instrumentations. If developers need
+fine-grained instrumentation that they cannot describe with
+source-level vocabulary, they can use the low-level part of the
+Javassist API, which is not described in this article. It's a similar
+bytecode-level API to Jakarta BCEL. </p><p>The design of the Javassist API for instrumenting a method
+body is based on the idea of Aspect-Oriented Programming (AOP).
+Javassist allows the identification of some expressions, such as method
+calls and field accesses, in a method body and then substitutes a code
+fragment for the expression. </p><p>For example, Listing 1 first obtains a CtMethod object that
+represents a draw method in the Screen class; then it searches the body
+of the draw method for method calls to move in Point class. All the
+occurrences of the method calls to move are replaced with the following
+block statement: </p><p><font color="#800000">{ System.out.println("move"); $_ = $proceed($$); } </font>
+</p><p>so that a message is printed out before a move is called. The statement, written in special syntax: 
+</p><p><font color="#800000">$_ = $proceed($$); </font>
+</p><p>executes the original method call with the original parameters. 
+</p><p>The instrument method in CtMethod searches the method body and,
+when it finds a method-call expression, calls the edit method on the
+given ExprEditor object. The parameter to the edit method is a
+Method-Call object representing the found expression. Since this object
+provides methods for getting static properties of the expression, the
+edit method first examines the name of the called method and, if the
+method is moved in Point, it replaces the method-call expression with
+the block statement printing a message. The block statement is compiled
+into bytecode by Javassist before the replacement. </p><p><strong>Special Variables</strong><br>In the substituted
+statement, several special variables beginning with $ are available.
+For example, $_ represents the result value of the substituted
+expression. $$ represents a list of the original parameters to the
+method called in the replaced expression. $proceed represents the name
+of the originally called method. Each parameter to the originally
+called method is represented by $1, $2, $3,.... The target object of
+the method call is represented by $0. These special variables are
+useful when developers want to change some of the parameters. For
+example, if the substituted block given to the replace method at line 8
+was as follows: </p><p><font color="#800000">{ System.out.println("move"); $_ = $proceed($1, 0); } </font>
+</p><p>then the second parameter to the move method would be zero. 
+</p><p>Another special variable $args is an Object array containing all
+the parameters to the originally called method. If the type of a
+parameter is a primitive type, then the wrapper object containing that
+parameter value is stored in the array. For example, if the parameter
+is an int value, the java.lang.Integer object containing that int value
+is stored in the array. $args is useful when the parameters are used to
+call a method through the invoke method in java.lang. reflect.Method. </p><p>Javassist also allows the insertion of a code fragment at the
+beginning or end of a method body. For example, the insertBefore method
+inserts the given block statement at the beginning of the method body. </p><p><font color="#800000">1. ClassPool pool = ClassPool.getDefault();<br>2. CtClass cc = pool.get("Screen");<br>3. CtMethod cm = cc.getDeclaredMethod("draw", new CtClass[0]);<br>4. cm.insertBefore("{ System.out.println($1); System.out.println($2); }");<br>5. cc.writeFile(); </font>
+</p><p>This example inserts a code fragment at the beginning of the
+draw method so that the values of the two parameters to draw are
+printed out. $1 and $2 are special variables representing the first and
+second parameters to draw. </p><p>Special variables starting with $ are also available in the
+source text passed to the setBody method in CtMethod. The following
+example shows how to add a wrapper method: </p><p><font color="#800000">1. CtClass cc = sloader.get("Point");<br>2. CtMethod m1 = cc.getDeclaredMethod("move");<br>3. CtMethod m2 = CtNewMethod.copy(m1, cc, null);<br>4. m1.setName(m1.getName() + "_orig");<br>5. m2.setBody("{ System.out.println("call"); return $proceed($$);<br>}", "this", m1.getName());<br>6. cc.addMethod(m2);<br>7. cc.writeFile(); </font>
+</p><p>This program first makes a copy of the move method in the Point
+class, then it renames the original move method to move_ orig. It then
+changes the body of the copy of the move method so the copy will be a
+wrapper method named move, which prints a message and invokes the
+move_orig method. The second parameter to setBody specifies the target
+object of the $proceed call, and the third parameter specifies the name
+of the method called by $proceed. </p><p>Javassist also has a multitude of other helper objects and
+functions that allow you to do things like replace field access,
+redirect method calls, and simplify how you insert code before or after
+a method. Check out <a href="http://www.javassist.org/" target="new">www.javassist.org</a> for more information and tutorials. 
+</p><p><strong>Performance Overhead</strong><br>Some developers
+seriously care about the runtime performance of class files modified by
+Javassist. However, runtime penalties due to Javassist are extremely
+low, thanks to the custom compiler included in Javassist. While
+handling special variables starting with $ is the major source of the
+runtime penalties, the custom compiler produces optimized bytecode to
+reduce the overhead. For example, developers can use the instrument
+method in CtMethod to replace a method-call expression. If the
+substituted block statement is equivalent to the original expression,
+only a few extra machine cycles will be paid at runtime for every
+method call at that expression. </p><p><strong>ClassLoader</strong><br>Javassist can be used in
+conjunction with a ClassLoader to modify the bytecode of a class at
+runtime before it's loaded. In Java, developers can customize the
+classloading behavior by implementing a custom ClassLoader. They can
+use this mechanism so that class definitions will be modified on demand
+with Javassist when the classes are loaded. </p><p>The simplest way to modify and load a class at runtime is to
+call the toClass method in CtClass instead of the writeFile method. In
+the previous examples, the modified class files have been written out
+on a disk. However, the toClass method loads the class by a custom
+ClassLoader of Javassist and it returns the java.lang.Class object that
+represents the loaded class. Listing 2 dynamically defines the Hello
+class from scratch and adds the say() method, then it loads the Hello
+class and calls that method. </p><p>The definition of the IHello interface is as follows: 
+</p><p><font color="#800000">1. public interface IHello {<br>2. void say();<br>3. } </font>
+</p><p><strong>Tips on ClassLoaders</strong><br>Using toClass is simple
+but developers must be careful. Because of Java's classloading
+algorithm, developers might be confused and run into
+ClassCastExceptions. For example, in Listing 2, let's load the IHello
+interface with the toClass method before loading the Hello class,
+resulting in: </p><p><font color="#800000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<br>7. Class ih = ci.toClass();<br>8. Class h = cc.toClass();<br>9. IHello obj = (IHello)h.newInstance();<br>10. obj.say(); </font>
+</p><p>This change makes the cast operation at line 9 throw a
+ClassCastException, since the IHello interface appearing in the
+definition of the Hello class is different from the IHello interface at
+line 9. </p><p>To understand this situation, you must know that multiple
+ClassLoaders can coexist in Java and they form a tree structure. Each
+ClassLoader except the root has a parent ClassLoader, which normally
+loads the class of that child ClassLoader. The request to load a class
+is delegated along this hierarchy of ClassLoaders. </p><p>If a class file is loaded by two distinct ClassLoaders, it
+becomes two distinct classes with the same name and definition. Since
+the two classes are not identical, an instance of one class is not
+assignable to a variable of the other class. In the previous example,
+IHello is loaded at line 7 by a custom ClassLoader of Javassist (let's
+call it LJ). Since the loaded classes and interfaces are cached in the
+ClassLoader, the IHello interface loaded by LJ is used as the interface
+implemented by the Hello class when it's loaded by LJ at line 8. </p><p>On the other hand, IHello at line 9 represents the interface
+that's loaded by a ClassLoader that loads the class including line 9
+(let's call it LP). Since this ClassLoader LP also loads the class of
+LJ, it's the parent ClassLoader of LJ. Since the object created by
+h.newInstance() has the IHello interface loaded by LJ but not LP, the
+cast operation at line 9 fails and throws an exception. Note that if
+line 7 were removed, LJ would delegate at line 8 to the parent
+ClassLoader LP to load IHello, and thus the Hello class loaded by LJ
+would implement IHello loaded by LP. Thus the cast operation at line 9
+would succeed. </p><p>To avoid this ClassCastException problem, Javassist provides
+another ClassLoader that allows developers to fully control the
+classloading behavior. Developers can define an event listener that is
+notified every time a client requests to load a class so that the
+listener can properly modify the class. </p><p><strong>Summary</strong><br>Javassist is a powerful Java
+library that helps provide instrumentation of bytecode at load time or
+at compile time. Since it provides source-level abstraction, which is
+higher than the abstraction by similar libraries, using Javassist is
+relatively easy and detailed knowledge of Java bytecode is unnecessary.
+</p>
+  <p>
+
+</p></div>
+
+<p>
+<small>© 2008 SYS-CON Media Inc.</small>
+</p></body></html>

@@ -1,0 +1,89 @@
+
+Changes in version 2.23
+
+    * Visitor pattern implemented for text summary
+    * Enhancements to UI - file history, enabling/disabling of menu based 
+      on context
+    * XML output implemented using the base visitor pattern developed for text 
+      summary.
+
+Changes in version 2.22
+
+    * Licensed under LGPL
+    * Moved over to sourceforge.net
+
+Changes in version 2.21
+
+    * Prepared for editable code.
+    * Protected local variable table from invalid information in obfuscated 
+      class files.
+
+Changes in version 2.20
+
+    * Corrected search behavior where all searches after a failed search were 
+      also failing till the table selection was changed.
+    * Editable exception handler table of code attribute.
+    * Editable method exception list.
+
+Changes in version 2.15
+
+    * Fixed ArrayBoundsException during method edit.
+    * Editable line number table attribute and local variables table attribute.
+
+Changes in version 2.10
+
+    * Support for InnerClasses, Synthetic and Deprecated attributes.
+    * Reorganized packages and enhanced attribute dialog in preparation for 
+      editable attributes.
+    * Enhanced access flag editor.
+
+Changes in version 2.00
+
+    * Complete rewrite of the GUI in Java Swing.
+    * Automated and transparent constant pool manipulation which makes it easy 
+      to edit Fields and Methods
+    * Command line parameters accepted. ClassEditor can be started from the 
+      command line with class files to open as arguments. For example: 
+      "java -jar ce.jar MyClass.class" will open MyClass.class with ClassEditor.
+
+Changes in version 1.40
+
+    * Facility to open multiple class files simultaneously.
+    * Creating a new class from scratch is made easier by creating a valid 
+      classfile from the beginning.
+    * Toolbar to make access to frequently used options easy.
+    * User interface modified to support larger font sizes.
+
+Note: ClassEditor 1.4 and prior releases were built with Microsoft WFC and 
+    require Microsoft JVM.
+
+Changes in version 1.30
+
+    * Facility to add and delete methods.
+    * Facility to search methods.
+    * Bug fix to prevent null pointer exception on saving a class with new 
+      fields.
+    * Attribute dialog now displays even if there are no attributes to enable 
+      addition of attributes in the future.
+    * User interface has a more uniform look and feel.
+
+Changes in version 1.20
+
+    * Facility to add, and delete interfaces.
+    * Facility to add, and delete constant pool entries.
+    * Facility to add, and delete class fields.
+    * Text search in constant pool entries and fields.
+    * Fixed bug where ClassEditor used to give null pointer exception if an 
+      attribute name was modified. (Bug identified by Raymond Chugg)
+    * Fixed bugs where ClassEditor used to give exception on clicking on 
+      buttons if no class is loaded yet.
+
+Changes in version 1.10
+
+    * Improved speed while reading and writing class files.
+    * Facility to get text report of the class file and its different sections.
+    * Facility to verify changes according to class file specification.
+    * Determine related classes and jump to them directly.
+    * Improved GUI.
+    * Internal changes to facilitate future enhancements.
+

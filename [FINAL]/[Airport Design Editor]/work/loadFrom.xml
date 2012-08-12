@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="AceXML" version="1,0" id="AirObjectVisuals">
+    <Descr>AceXML Document</Descr>
+    <Filename>AirObjectVisuals.XML</Filename>
+    <SimMission.AirObjectVisuals>
+
+        <AirObjectVisual id = "{A600A1CE-8BEE-438f-828A-3562CBE897AE}">
+            <AirObjectModelGuid>{00000000-0000-0000-0000-000000000000}</AirObjectModelGuid>
+            <ScaleModel>FALSE</ScaleModel>
+        </AirObjectVisual>
+
+        <AirObjectVisual id = "{A600A1CD-8BEE-438f-828A-3562CBE897AE}">
+            <AirObjectModelGuid>{61ff499a-6e71-46ab-bb59-e10f7f457674}</AirObjectModelGuid>
+            <ScaleModel>FALSE</ScaleModel>
+        </AirObjectVisual>
+
+        <AirObjectVisual id = "{A600A1CC-8BEE-438f-828A-3562CBE897AE}">
+            <AirObjectModelGuid>{4d59805f-7a43-490d-b997-33e8b883716d}</AirObjectModelGuid>
+            <ScaleModel>TRUE</ScaleModel>
+        </AirObjectVisual>
+
+	    <!-- 'Natural' visualizations for thermals -->
+        <Autogen.Grouping id = "{320AF327-20D0-4f69-974C-0D2633A81050}">
+            <ReferenceEntry>
+                <TargetGuid>{A600A1CD-8BEE-438f-828A-3562CBE897AE}</TargetGuid>
+                <RelativeWeight>100</RelativeWeight>
+            </ReferenceEntry>
+        </Autogen.Grouping>
+
+	    <!-- 'Schematic' visualizations for thermals -->
+        <Autogen.Grouping id = "{9BFAFE66-7915-4afc-AB5C-CBADFFCE1762}">
+            <ReferenceEntry>
+                <TargetGuid>{A600A1CC-8BEE-438f-828A-3562CBE897AE}</TargetGuid>
+                <RelativeWeight>100</RelativeWeight>
+            </ReferenceEntry>
+        </Autogen.Grouping>
+
+	    <!-- 'Natural' visualizations for ridge lift -->
+        <Autogen.Grouping id = "{31605B25-7B2E-4e92-AA69-53042298D530}">
+            <ReferenceEntry>
+                <TargetGuid>{A600A1CE-8BEE-438f-828A-3562CBE897AE}</TargetGuid>
+                <RelativeWeight>100</RelativeWeight>
+            </ReferenceEntry>
+        </Autogen.Grouping>
+
+	    <!-- 'Schematic' visualizations for ridge lift -->
+        <Autogen.Grouping id = "{45B8B708-5A7F-4f12-9437-AE1791E543CA}">
+            <ReferenceEntry>
+                <TargetGuid>{A600A1CE-8BEE-438f-828A-3562CBE897AE}</TargetGuid>
+                <RelativeWeight>100</RelativeWeight>
+            </ReferenceEntry>
+        </Autogen.Grouping>
+
+    </SimMission.AirObjectVisuals>
+</SimBase.Document>

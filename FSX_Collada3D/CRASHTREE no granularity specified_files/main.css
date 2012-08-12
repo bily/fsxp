@@ -1,0 +1,294 @@
+/* Start Staff page */
+#staff h1 {
+color:#f0b81c;
+font-size: 2.0em;
+margin-bottom: 5px;	
+}
+#staff h2 {
+margin-bottom: 5px;	
+}
+#staff h3 {
+margin-bottom: 5px;	
+margin-top: 5px;	
+}
+/* End Staff page */
+
+/* start downloads */
+.dlc {
+	padding: 10px;
+}
+.dhl {
+	font-size: 2.0em;
+}
+.dd {
+	font-size: 1.2em;
+}
+.dls {
+	padding: 2px;
+}
+.dlsm {
+	float: left;
+	font-size: 1.0em;
+}
+.dlsl {
+	clear: left;
+	font-size: 0.8em;
+}
+
+.downloadComment {
+background-color:#F3F3F3;
+border-top:1px dotted #CCCCCC;
+}
+
+#downloadInfoPanel th {
+font-weight:bold;
+}
+
+#downloadInfo {
+float: left;
+background-color: InactiveCaptionText;
+border: #0000CD dashed 1px;
+padding: 5px;
+margin:5px;
+width: 40%;
+}
+
+#downloadTree {
+float:left;
+width:100%;
+height:300px;
+overflow:auto;
+}
+
+.folder .x-tree-node-icon{
+background:transparent url('/js/ext/images/default/tree/folder.gif') no-repeat top center;
+}
+.x-tree-node-expanded .x-tree-node-icon{
+background:transparent url('/js/ext/resources/images/default/tree/folder-open.gif');
+}
+/* End downloads */
+
+
+/* Start The news container */
+#np {
+float: left;
+width: 730px;
+height: 389px;
+background: #286b96;
+color: white;
+margin: 0px 0px 10px 0px;
+overflow:hidden;
+}
+
+#ni {
+padding: 0px 0px 0px 5px;
+}
+
+#ni p {
+font-size:0.9em;
+margin: 5px 5px 5px 0px;	
+}
+
+#ni a:hover {
+text-decoration:underline;
+color:#f0b81c;
+}
+#ni a {
+text-decoration:none;
+color:#f0b81c;
+}
+
+#ni h1 {
+font-size:1.0em;
+margin: 5px 0px 0px 0px;
+}
+
+#ni .rm {
+color:#f0b81c;
+font-size: 0.8em;
+text-align:right;	
+}
+
+.tni {
+float:left;
+width:100%;	
+}
+
+.ni1 {
+float: left;
+width: 45%;
+margin-right: 15px;
+}
+
+.ni2 {
+float:left;
+width: 45%;	
+}
+/* End The news container */
+
+/* Start news page */
+#n {
+	width: 730px;
+}
+#nihl {
+float: left;
+width: 500px;
+height: 70px;
+background: #286b96;
+margin: 1px 1px 5px 0px;
+}
+#nihr {
+float: left;
+width: 229px;
+height: 70px;
+background: #286b96;
+margin: 1px 0px 5px 0px;	
+}
+
+.nh {
+color:white;
+font-size: 1.8em;
+padding: 5px;		
+}
+.nsh {
+color:#f0b81c;
+font-size: 1.2em;
+margin-right: 5px;
+width:100%;
+text-align: right;
+overflow: hidden;		
+}
+
+.dow {
+color:#f0b81c;
+font-size: 1.8em;
+padding: 5px;	
+}
+.d {
+color:white;
+font-size: 1.2em;
+padding: 5px;	
+}
+#nmb {
+clear: both;
+margin: 10px 10px 0px 10px;
+}
+/* End news page */
+
+/* Start center container */
+#cc {
+float: left;
+}
+#iw {
+margin: 1px 0px 3px 0px;	
+}
+#fsimage {
+	width: 730px;
+	height: 458px;
+}
+
+/* End center container */
+
+
+/* Start the left container */
+#lc {
+width: 245px;
+height: 850px;
+background: Black;
+color: white;
+margin: 1px 2px 1px 1px;
+float: left;	
+}
+
+#lct {
+height: 780px;
+}
+
+#lcb {
+height: 50px;
+}
+
+#lcb a {
+color:#f0b81c;
+}
+#lc p {
+margin: 2px 5px 2px 5px;
+font-size: 1em;
+}
+
+#lc h1 {
+font-size: 1.1em;	
+margin: 10px 0px 2px 5px;
+}
+
+#lc h2 {
+font-size: 1.0em;	
+margin: 10px 0px 0px 5px;
+}
+
+#lc .lt {
+text-align: right;
+margin-top: 10px;
+}
+
+.lt a:hover {
+text-decoration:underline;
+color:#f0b81c;
+}
+.lt a {
+text-decoration:none;
+color:#f0b81c;
+}
+
+#lc .ir {
+	float: right;
+	margin: 10px 10px 0px 0px;
+}
+
+#lc .il {
+border:none;
+	float: left;
+	margin: 5px 0px 0px 3px;
+}
+
+#lc .fl {
+	float:left;
+	margin-left: 2px;
+	margin-right: 4px;
+	border: none;
+}
+/* End the left container */
+
+
+/* The main page container */
+#mp, #mph {
+font-family: "Lucida Grande",Tahoma,Arial,sans-serif;
+min-width: 940px;;
+margin-left: auto;
+margin-right: auto;
+width:980px;
+height: 852px;
+background: white;
+}
+
+.fl {
+    float:left;
+    margin-left: 2px;
+    margin-right: 4px;
+    border: none;
+}
+
+/* Override vb default page style for the homepage */
+.page {
+background: black;
+}
+.tfoot {
+background:black none repeat scroll 0%;
+color:white;
+}
+
+/* End override vb default page style for the homepage */
+
+body {
+background: black;
+}

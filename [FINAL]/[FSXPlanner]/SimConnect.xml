@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+
+<SimBase.Document Type="SimConnect" version="1,0">
+  <Descr>SimConnect</Descr>
+  <Filename>SimConnect.xml</Filename>
+  <Disabled>False</Disabled>
+  
+  <!-- For default local SimConnect connections -->
+  <SimConnect.Comm>
+    <Disabled>False</Disabled>
+    <Protocol>IPv4</Protocol>
+    <Scope>local</Scope>
+    <Address></Address>
+    <MaxClients>64</MaxClients>
+    <Port></Port>
+    <MaxRecvSize>4096</MaxRecvSize>
+    <DisableNagle>False</DisableNagle>
+  </SimConnect.Comm>
+  
+  <!-- For local and remote FSX Planner connections -->
+  <SimConnect.Comm>
+    <Disabled>False</Disabled>
+    <Protocol>IPv4</Protocol>
+    <Scope>local</Scope>
+    <Address>127.0.0.1</Address>
+    <MaxClients>64</MaxClients>
+    <Port>48447</Port>
+    <MaxRecvSize>4096</MaxRecvSize>
+    <DisableNagle>False</DisableNagle>
+  </SimConnect.Comm>
+  
+  <!-- For remote FSX Planner connections -->
+  <SimConnect.Comm>
+    <Disabled>False</Disabled>
+    <Protocol>IPv4</Protocol>
+    <Scope>global</Scope>
+    <Address>192.168.1.103</Address>
+    <MaxClients>64</MaxClients>
+    <Port>48447</Port>
+    <MaxRecvSize>4096</MaxRecvSize>
+    <DisableNagle>False</DisableNagle>
+  </SimConnect.Comm>
+</SimBase.Document>

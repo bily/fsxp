@@ -1,0 +1,399 @@
+<html><head><title>Java Decompiler HOW-TO</title></head><body bgcolor="white">
+
+<hr>
+<h1> Java Decompiler HOW-TO</h1>
+
+<h2>Al Dev (Alavoor Vasudevan)        
+<a href="mailto:alavoor%5BAT%5Dyahoo.com">alavoor[AT]yahoo.com</a></h2>v4.5, 20 Sep 2002
+<p></p><hr>
+<em>This document will help you to de-compile the Java class programs. This documents gives a list of decompilers which can reverse
+engineer the Java class files and generate the Java source code files.
+Thie is very helpful if you do not have the Java source code file and have only
+the Java class files. The information in this document applies to all
+the operating sytems where Java language/Java VM runs.</em>
+<hr>
+<p>
+</p><h2><a name="toc1">1.</a> <a href="#s1">Introduction</a></h2>
+
+<p>
+</p><h2><a name="toc2">2.</a> <a href="#s2">How can I trust Java Decompiler ??!!</a></h2>
+
+<p>
+</p><h2><a name="toc3">3.</a> <a href="#s3">Related URLs</a></h2>
+
+<p>
+</p><h2><a name="toc4">4.</a> <a href="#s4">Other Formats of this Document</a></h2>
+
+<ul>
+<li><a href="#ss4.1">4.1 Acrobat PDF format </a>
+</li><li><a href="#ss4.2">4.2 Convert Linuxdoc to Docbook format </a>
+</li><li><a href="#ss4.3">4.3 Convert to MS WinHelp format </a>
+</li><li><a href="#ss4.4">4.4 Reading various formats </a>
+</li></ul>
+<p>
+</p><h2><a name="toc5">5.</a> <a href="#s5">Copyright</a></h2>
+
+<hr>
+<h2><a name="s1">1.</a> <a href="#toc1">Introduction</a></h2>
+
+<p><b>(The latest version of this document is at 
+<a href="http://www.milkywaygalaxy.freeservers.com/">http://www.milkywaygalaxy.freeservers.com</a>. You may
+want to check there for changes).</b>
+</p><p>Java compiler compiles the Java source code files (*.java) into
+binaries files (*.class). You would use the Java de-compiler to
+convert java class files into source code files (*.java).
+</p><p>Java de-compiler is very useful especially if you have *.class
+files and you do not have access to the source code. Some vendors
+do not ship the source code for java class files, in which case
+you use the java decompiler to look at the source code.
+</p><p>See also the "javap" command from Sun Microsystems. This command is 
+available as soon as you install the JDK from Sun Microsystems. 
+At unix prompt type -
+</p><hr>
+<pre>bash$ javap -help
+bash$ javap -c  &lt;filename&gt;.class
+</pre>
+<hr>
+<p>The following are the list of Java decompilers available -
+</p><ul>
+<li> Free "Jad" Java Decompiler at 
+<a href="http://www.geocities.com/SiliconValley/Bridge/8617/jad.html#general">http://www.geocities.com/SiliconValley/Bridge/8617/jad.html#general</a>
+and at 
+<a href="http://www.geocities.com/SiliconValley/Bridge/8617/jad.html#gui">http://www.geocities.com/SiliconValley/Bridge/8617/jad.html#gui</a>
+<p>
+</p><p>
+
+</p></li><li> List of Decompilers, disassemblers and obfuscators are at
+<a href="http://dmoz.org/Computers/Programming/Languages/Java">http://dmoz.org/Computers/Programming/Languages/Java</a>
+<p>
+</p><p>
+
+</p></li><li> Free "Mocha" Java Decompiler at 
+<a href="http://www.brouhaha.com/%7Eeric/computers">http://www.brouhaha.com/~eric/computers</a> and download at
+<a href="http://www.brouhaha.com/%7Eeric/computers/mocha-b1.zip">http://www.brouhaha.com/~eric/computers/mocha-b1.zip</a>
+<p>
+</p><p>
+
+</p></li><li> "DeCafe Pro" from DeCafe, France at 
+<a href="http://decafe.hypermart.net/index.htm">http://decafe.hypermart.net/index.htm</a>
+<p>
+</p><p>
+
+</p></li><li> "SourceTech Java decompiler" from Source Tech corp at 
+<a href="http://www.srctec.com/">http://www.srctec.com</a> 
+and at 
+<a href="http://members.tripod.com/%7ESourceTec/jasmine.htm">http://members.tripod.com/~SourceTec/jasmine.htm</a>
+<p>
+</p><p>
+
+</p></li><li> "SourceAgain" from Ahpah corp at 
+<a href="http://www.ahpah.com/">http://www.ahpah.com</a>
+<p>
+</p><p>
+
+</p></li><li> "Class Cracker" from Mayon Software, Australia at 
+<a href="http://www.tip.net.au/%7Emayon/classcracker/ccorder.html">http://www.tip.net.au/~mayon/classcracker/ccorder.html</a> and at 
+<a href="http://www.pcug.org.au/%7Emayon">http://www.pcug.org.au/~mayon</a>
+<p>
+</p><p>
+
+</p></li><li> "IceBreaker" from BreakerTech corp, U.K. at 
+<a href="http://www.breakertech.com/">http://www.breakertech.com</a> 
+and at 
+<a href="http://www.breakertech.com/breaker/ice/ice.html#download">http://www.breakertech.com/breaker/ice/ice.html#download</a>
+<p>
+</p><p>
+
+</p></li><li> "NMI Java decompiler" from NMI at 
+<a href="http://njcv.htmlplanet.com/">http://njcv.htmlplanet.com</a>
+and at
+<a href="http://njcv.htmlplanet.com/njcv.html">http://njcv.htmlplanet.com/njcv.html</a>
+<p>
+</p><p>
+
+</p></li><li> DJ Java Decompiler at 
+<a href="http://members.fortunecity.com/neshkov/dj.html">DJ decompiler</a>
+or at the 
+<a href="http://download.com.com/3000-2417-10146169.html?tag=must">Download.com</a>
+<p>
+</p><p>
+
+</p></li><li> Google 
+<a href="http://directory.google.com/Top/Computers/Programming/Languages/Java/Development_Tools/Translators/Decompilers_and_Disassemblers/?tc=1">http://directory.google.com/Top/Computers/Programming/Languages/Java/Development_Tools/Translators/Decompilers_and_Disassemblers/?tc=1</a>
+<p>
+</p><p>
+
+</p></li><li> SureShot 
+<a href="http://www.bysoft.se/sureshot/cavaj/index.html">http://www.bysoft.se/sureshot/cavaj/index.html</a>
+and 
+<a href="http://www.bysoft.se/sureshot/jcavaj/index.html">http://www.bysoft.se/sureshot/jcavaj/index.html</a>
+</li>
+</ul>
+<p>
+</p><hr>
+<h2><a name="s2">2.</a> <a href="#toc2">How can I trust Java Decompiler ??!!</a></h2>
+
+<p>For 100% assurance you need a <b>SCIENTIFIC</b> way to 
+validate and trust the Java Decompiler program. The method described
+in this section will enable the decompiler program to be accepted
+as "trust-worthy" and reliable.
+</p><p>In order to verify that the decompiler program 
+is regenerating the Java source-code properly,
+use the following technique -
+</p><p>Generate the class file from the generated 
+source code using the compiler -
+</p><hr>
+<pre>bash$ mv myprogram.class myprogram_orig.class
+bash$ javac myprogram.java
+</pre>
+<hr>
+<p>Now use the unix 'diff' command to compare the two class files -
+</p><hr>
+<pre>bash$ diff myprogram.class myprogram_orig.class
+</pre>
+<hr>
+
+Both these files <b>MUST BE IDENTICAL</b>. This verifies that
+decompiler program is working perfectly. On DOS or Windows 95 you may want to use
+the free 
+<a href="http://www.cygnus.com/">Cygnus</a> Cygwin 
+'diff' or 'MKS' utilities.
+<p>This step gives 100% guarantee and 100% quality assurance 
+and life term or long term <b>WARRANTY</b> on decompiler programs.
+</p><p>It is strongly recommended that you do these steps  
+every time you run decompiler programs.
+</p><hr>
+<h2><a name="s3">3.</a> <a href="#toc3">Related URLs</a></h2>
+
+<p>Visit following locators which are related to Java -
+</p><ul>
+<li> 
+<a href="http://www.linuxdoc.org/HOWTO/Enterprise-Java-for-Linux-HOWTO.html">http://www.linuxdoc.org/HOWTO/Enterprise-Java-for-Linux-HOWTO.html</a></li>
+<li> 
+<a href="http://www.linuxdoc.org/HOWTO/Java-CGI-HOWTO.html">http://www.linuxdoc.org/HOWTO/Java-CGI-HOWTO.html</a></li>
+<li> 
+<a href="http://www.linuxdoc.org/HOWTO/JavaStation-HOWTO/index.html">http://www.linuxdoc.org/HOWTO/JavaStation-HOWTO/index.html</a></li>
+<li> 
+<a href="http://metalab.unc.edu/LDP/HOWTO/Vim-HOWTO.html">Vim color text editor for Java, C++, C</a></li>
+<li> 
+<a href="http://metalab.unc.edu/LDP/HOWTO/C-C++Beautifier-HOWTO.html">Beautifier HOWTO for Java and C++ programs</a></li>
+<li> 
+<a href="http://metalab.unc.edu/LDP/HOWTO/C++Programming-HOWTO.html">C++ Programming HOWTO has support for Java like String objects</a></li>
+<li> Linux goodies main site is at 
+<a href="http://www.milkywaygalaxy.freeservers.com/">http://www.milkywaygalaxy.freeservers.com</a> 
+Mirror sites are at -
+<a href="http://aldev0.webjump.com/">http://aldev0.webjump.com</a>,
+<a href="http://www.angelfire.com/country/aldev0">angelfire</a>,
+<a href="http://www.geocities.com/alavoor/index.html">geocities</a>,
+<a href="http://aldev0.virtualave.net/">virtualave</a>,
+<a href="http://aldev0.50megs.com/">50megs</a>,
+<a href="http://members.theglobe.com/aldev1/index.html">theglobe</a>,
+<a href="http://members.nbci.com/alavoor">NBCi</a>,
+<a href="http://aldev.terrashare.com/">Terrashare</a>,
+<a href="http://members.fortunecity.com/aldev">Fortunecity</a>,
+<a href="http://aldev.freewebsites.com/">Freewebsites</a>,
+<a href="http://members.tripod.lycos.com/aldev">Tripod</a>,
+<a href="http://members.spree.com/technology/aldev">Spree</a>,
+<a href="http://www.escalix.com/freepage/aldev">Escalix</a>,
+<a href="http://www.httpcity.com/aldev/index.html">Httpcity</a>,
+<a href="http://aldev.freeservers.com/">Freeservers</a>.
+</li>
+</ul>
+<hr>
+<h2><a name="s4">4.</a> <a href="#toc4">Other Formats of this Document</a></h2>
+
+<p>This document is published in 14 different formats namely - DVI, Postscript, 
+Latex, Adobe Acrobat PDF,
+LyX, GNU-info, HTML, RTF(Rich Text Format), Plain-text, Unix man pages, single 
+HTML file, SGML (Linuxdoc format), SGML (Docbook format), MS WinHelp format.
+</p><p>This howto document is located at -
+</p><ul>
+<li> 
+<a href="http://www.linuxdoc.org/">http://www.linuxdoc.org</a> and click on HOWTOs and search 
+for howto document name using CTRL+f or ALT+f within the web-browser.</li>
+</ul>
+<p>You can also find this document at the following mirrors sites -
+</p><ul>
+<li> 
+<a href="http://www.caldera.com/LDP/HOWTO">http://www.caldera.com/LDP/HOWTO</a></li>
+<li> 
+<a href="http://www.linux.ucla.edu/LDP">http://www.linux.ucla.edu/LDP</a></li>
+<li> 
+<a href="http://www.cc.gatech.edu/linux/LDP">http://www.cc.gatech.edu/linux/LDP</a></li>
+<li> 
+<a href="http://www.redhat.com/mirrors/LDP">http://www.redhat.com/mirrors/LDP</a>
+</li>
+<li> Other mirror sites near you (network-address-wise) can be found at
+<a href="http://www.linuxdoc.org/mirrors.html">http://www.linuxdoc.org/mirrors.html</a>
+select a site and go to directory /LDP/HOWTO/xxxxx-HOWTO.html</li>
+</ul>
+<p>
+</p><p>
+</p><ul>
+<li>You can get this HOWTO document as a single file tar ball in HTML, DVI, 
+Postscript or SGML formats from -
+<a href="ftp://www.linuxdoc.org/pub/Linux/docs/HOWTO/other-formats/">ftp://www.linuxdoc.org/pub/Linux/docs/HOWTO/other-formats/</a>
+and 
+<a href="http://www.linuxdoc.org/docs.html#howto">http://www.linuxdoc.org/docs.html#howto</a>
+<p>
+
+</p></li><li>Plain text format is in: 
+<a href="ftp://www.linuxdoc.org/pub/Linux/docs/HOWTO">ftp://www.linuxdoc.org/pub/Linux/docs/HOWTO</a>
+and 
+<a href="http://www.linuxdoc.org/docs.html#howto">http://www.linuxdoc.org/docs.html#howto</a>
+<p>
+
+</p></li><li>Single HTML file format is in: 
+<a href="http://www.linuxdoc.org/docs.html#howto">http://www.linuxdoc.org/docs.html#howto</a>
+<p> Single HTML file can be created with command (see man sgml2html) - 
+sgml2html -split 0   xxxxhowto.sgml
+</p><p>
+
+</p></li><li>Translations to other languages like French, German, Spanish, 
+Chinese, Japanese are in
+<a href="ftp://www.linuxdoc.org/pub/Linux/docs/HOWTO">ftp://www.linuxdoc.org/pub/Linux/docs/HOWTO</a>
+and 
+<a href="http://www.linuxdoc.org/docs.html#howto">http://www.linuxdoc.org/docs.html#howto</a>
+Any help from you to translate to other languages is welcome.</li>
+</ul>
+
+The document is written using a tool called "SGML-Tools" which can be got from - 
+<a href="http://www.sgmltools.org/">http://www.sgmltools.org</a>
+Compiling the source you will get the following commands like
+<ul>
+<li>sgml2html xxxxhowto.sgml     (to generate html file)</li>
+<li>sgml2html -split 0   xxxxhowto.sgml (to generate a single page html file)</li>
+<li>sgml2rtf  xxxxhowto.sgml     (to generate RTF file)</li>
+<li>sgml2latex xxxxhowto.sgml    (to generate latex file)</li>
+</ul>
+<h2><a name="acrobatpdf"></a> <a name="ss4.1">4.1 Acrobat PDF format </a>
+</h2>
+
+<p>PDF file can be generated from postscript file using 
+either acrobat <b>distill</b> or <b>Ghostscript</b>.
+And postscript file is generated
+from DVI which in turn is generated from LaTex file.
+You can download distill software from 
+<a href="http://www.adobe.com/">http://www.adobe.com</a>. Given below 
+is a sample session:
+</p><hr>
+<pre>bash$ man sgml2latex
+bash$ sgml2latex filename.sgml
+bash$ man dvips
+bash$ dvips -o filename.ps filename.dvi
+bash$ distill filename.ps
+bash$ man ghostscript
+bash$ man ps2pdf
+bash$ ps2pdf input.ps output.pdf
+bash$ acroread output.pdf &amp;
+</pre>
+<hr>
+
+Or you can use Ghostscript command <b>ps2pdf</b>.
+ps2pdf is a work-alike for nearly all the functionality of 
+Adobe's Acrobat Distiller product: it
+converts PostScript files to Portable Document Format (PDF) files. 
+<b>ps2pdf</b> is implemented as a very small command script 
+(batch file) that invokes Ghostscript, selecting a special "output device"
+called <b>pdfwrite</b>. In order to use ps2pdf, the pdfwrite 
+device must be included in the makefile when Ghostscript was compiled;
+see the documentation on building Ghostscript for details.
+<h2><a name="linuxdoc2docbook"></a> <a name="ss4.2">4.2 Convert Linuxdoc to Docbook format </a>
+</h2>
+
+<p>This document is written in linuxdoc SGML format. The Docbook SGML format
+supercedes the linuxdoc format and has lot more features than linuxdoc.
+The linuxdoc is very simple and is easy to use. To convert linuxdoc SGML 
+file to Docbook SGML use the program <b>ld2db.sh</b> and some perl scripts.
+The ld2db output is not 100% clean and you need to use the <b>clean_ld2db.pl</b>
+perl script. You may need to manually correct few lines in the document.
+</p><ul>
+<li> Download ld2db program from 
+<a href="http://www.dcs.gla.ac.uk/%7Errt/docbook.html">http://www.dcs.gla.ac.uk/~rrt/docbook.html</a>
+or from 
+<a href="http://www.milkywaygalaxy.freeservers.com/">Milkyway Galaxy site</a></li>
+<li> Download the cleanup_ld2db.pl perl script from
+from 
+<a href="http://www.milkywaygalaxy.freeservers.com/">Milkyway Galaxy site</a></li>
+</ul>
+
+The ld2db.sh is not 100% clean, you will get lots of errors when you run
+<hr>
+<pre>        bash$ ld2db.sh file-linuxdoc.sgml db.sgml
+        bash$ cleanup.pl db.sgml &gt; db_clean.sgml
+        bash$ gvim db_clean.sgml 
+        bash$ docbook2html db.sgml
+</pre>
+<hr>
+
+And you may have to manually edit some of the minor errors after 
+running the perl script. For e.g. you may need to put closing tag &lt;
+/Para&gt; for each &lt;
+Listitem&gt;
+<h2><a name="mswinhelp"></a> <a name="ss4.3">4.3 Convert to MS WinHelp format </a>
+</h2>
+
+<p>You can convert the SGML howto document to Microsoft Windows Help file, 
+first convert the sgml to html using:
+</p><hr>
+<pre>        bash$ sgml2html xxxxhowto.sgml     (to generate html file)
+        bash$ sgml2html -split 0   xxxxhowto.sgml (to generate a single page html file)
+</pre>
+<hr>
+
+Then use the tool 
+<a href="http://javadocs.planetmirror.com/htmltohlpe.html">HtmlToHlp</a>.
+You can also use sgml2rtf and then use the RTF files for generating winhelp files.
+<h2><a name="readformats"></a> <a name="ss4.4">4.4 Reading various formats </a>
+</h2>
+
+<p>In order to view the document in dvi format, use the xdvi program. The xdvi
+program is located in tetex-xdvi*.rpm package in Redhat Linux which can be
+located through ControlPanel | Applications | Publishing | TeX menu buttons.
+To read dvi document give the command -
+</p><blockquote><code>
+</code><pre>        xdvi -geometry 80x90 howto.dvi
+        man xdvi
+</pre>
+</blockquote>
+
+And resize the window with mouse.
+To navigate use Arrow keys, Page Up, Page Down keys, also
+you can use 'f', 'd', 'u', 'c', 'l', 'r', 'p', 'n' letter
+keys to move up, down, center, next page, previous page etc.
+To turn off expert menu press 'x'.
+<p>You can read postscript file using the program 'gv' (ghostview) or 
+'ghostscript'.
+The ghostscript program is in ghostscript*.rpm package and gv 
+program is in gv*.rpm package in Redhat Linux
+which can be located through ControlPanel | Applications | Graphics menu 
+buttons. The gv program is much more user friendly than ghostscript.
+Also ghostscript and gv are available on other platforms like OS/2,
+Windows 95 and NT, you view this document even on those platforms.
+</p><p>
+</p><ul>
+<li>Get ghostscript for Windows 95, OS/2, and for 
+all OSes from 
+<a href="http://www.cs.wisc.edu/%7Eghost">http://www.cs.wisc.edu/~ghost</a></li>
+</ul>
+<p>To read postscript document give the command -
+</p><blockquote><code>
+</code><pre>                gv howto.ps
+                ghostscript howto.ps
+</pre>
+</blockquote>
+<p>You can read HTML format document using Netscape Navigator, Microsoft Internet
+explorer, Redhat Baron Web browser or any of the 10 other web browsers.
+</p><p>You can read the latex, LyX output using LyX a X-Windows front end to latex.
+</p><hr>
+<h2><a name="s5">5.</a> <a href="#toc5">Copyright</a></h2>
+
+<p>Copyright policy is GNU/GPL as per LDP (Linux Documentation project).
+LDP is a GNU/GPL project.
+Additional requests are - you retain the author's name, email address
+and this copyright notice on all the copies. If you make any changes 
+or additions to this document then you should 
+intimate all the authors of this document.
+</p><hr>
+
+</body></html>

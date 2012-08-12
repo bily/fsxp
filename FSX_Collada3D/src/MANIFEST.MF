@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.6.0_05 (Sun Microsystems Inc.)
+Main-Class: collada2x.gui.Collada2XUI
+Class-Path: . lc0277lib.jar activation.jar jaxb-api.jar jaxb-impl.jar jsr173_1.0_api.jar

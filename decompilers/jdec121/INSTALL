@@ -1,0 +1,45 @@
+
+				jdec : java decompiler
+				Licenced Under: GPL  
+				INSTALL FILE
+				
+Installation instructions:
+----------------------------------------------------------------------------------------------------------
+
+Step 1: Download The jdec1.2.1 archive file 
+
+Step 2: Extract The Contents to any directory
+
+Step 3: Assuming It is a windows Box and The user has extracted to d:\jdecfolder
+
+Step 4: d:\jdecfolder should have the following contents...
+        
+        1> jdec121.jar
+        2> imgs folder containing the images for the UI
+        3> Jdec-UI.bat  UI script Windows
+		4> Jdec-UI.sh UI script Unix
+        5> config.properties file which contains configuration properties For JDec to run
+		6> consolefilter.properties for changing filter settings when using the command line option
+		7> doc folder containing docs
+		8> README.
+		9> Authors
+		10> CommandLineHelp.txt showine various options avaliable while running the console option
+		11> Copying
+		12> Install
+		13> Jdec-Console.sh  Console script Unix
+		14> Jdec-Console.bat Console script Windows
+        
+Step 5: Please be careful while editing config.properties.
+        JDec tries its best to validate the properties.        
+
+Step 6: Open The config.properties file and Update any required property.(See below step)
+
+
+Step 7: It is not necessary to make any changes in config.properties before running the script file
+				When The ui comes up, Please select Config option from menu and update any changes....
+
+Step 8: The User will have to ensure That Strings "***Replace Me***" will be replaced with valid
+        values.It is possible that some exception might occur if not set properly
+				
+
+Step 9: Jdec is now ready for use.

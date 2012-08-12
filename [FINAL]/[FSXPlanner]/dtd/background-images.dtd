@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This is the dtd file for the recent files xml file.
+-->
+
+<!--
+The airports element is the top-level element.  It contains zero or more airport elements.
+-->
+<!ELEMENT Airports (Airport*)>
+
+<!--
+The airport element contains the name of a file and any images associated with it
+-->
+<!ELEMENT Airport (BackgroundImage*)>
+
+<!ATTLIST Airport name CDATA #REQUIRED ident CDATA #REQUIRED>
+
+<!ELEMENT BackgroundImage (Vertex, Vertex)>
+
+<!ATTLIST BackgroundImage path CDATA #REQUIRED visible CDATA #REQUIRED>
+
+<!ELEMENT Vertex EMPTY>
+
+<!ATTLIST Vertex lat CDATA #REQUIRED lon CDATA #REQUIRED>

@@ -1,0 +1,59 @@
+FSX Airport Editors Comparison	[v.04/03]
+ Bao Hong & Lee Wei, DSTA 2008
+------------------------------
+Findings:
+1. Is it simple to use? YES -user-friendly
+2. What is the feature set? -create/edit/view 2D symbols of 
+	runway,taxiway sign/point,jetway,parking/starting loc.,helipad,control tower,apron,fence,rect.,
+	path/link,NAV-COM,approach,marker,VOR,NDB,windsock,fuel trigger,scenery obj eg. fuel truck,lighting
+	etc. for airport
+	-compile to BGL w/ error checking
+	-FSXConnector
+    Its limitations. -cannot create/import/place 3D Building Models
+	-no support for custom obj; only customised obj ie modify property of object but not create/import NEW obj
+3. Standalone?  YES -dependencies: JRE/.NET Framework (FSX/FSX SDK not prerequisites)
+
+Details:
+		FSXPlanner(JAVA)	|	Airport Design Editor [Home Ed.](C#)
+		==========		|	=====================
+OVERALL					|
+Filesystem:	-.jar package			-many individual files/dlls
+Help:		-Online WWW			-Offline PDF Manual (inc.)
+File Formats
+Supported:			COMMON:	.BGL
+	OPEN	-.BGL/.XML			-.BGL/.XML,.ADE (cannot read FSXP .XML)
+	SAVE					-.BGL/.ADE/ Image eg. BMP,GIF,JPG,PNG,WMF
+Ease of editing: -click on feature		-tooltip of details onmouseover
+		  to edit values		 right-click/dbl-click
+		  in undockable win		 edit in popup win
+
+MENU BAR
+Import BGL:	-listbox of all airports	-expanding hierarchal (+) list	?missing OK;must dbl-click
+		 access airports faster		 find airports faster		 on airport
+		 can load multiple airports	 loads only one airport at a time
+		-BGLScanner works		-'Open Stock Airport' does not work
+Printing:	-options available		-none
+
+MENU/NAV TOOLBAR ICONS
+FUNCTIONS:	-All listed			-Menu Icons+right-click menu eg. Helipad
+		-Pan mode available		-none
+		 Centre function faulty		 'Centre on ARP' works
+		-Taxiway Link
+		 create then select type	select type upon creation
+		-Taxiway Name
+		 Menu Bar			Menu Icon
+		-FSX SimConnect
+		dedicated dialog		min. Button
+		-more options under 'Preferences'-cannot set color transparency
+		-more display options		-none
+		 can display history,counts
+		-Object Locking-more obj types
+		-can move airport
+						-cannot add background image (CRASHES)
+						-***can list/edit all objects of certain type eg. Taxi Points
+						-'load stock data' option to reset changes
+VIEWPORT
+		-indicates LAT/LON		-repeated in viewport/status bar
+						 shows values w/o LAT/LON
+
+					=[-END-]=

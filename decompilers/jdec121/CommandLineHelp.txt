@@ -1,0 +1,32 @@
+
+This text file is meant to list all the command line options avaliable to user.
+Any options set via command line will override those specified in config.poperties file.
+
+
+1.  showImports : pass true or false
+2.  outputMode  : pass file or console
+3.  logMode     : pass file opr console
+4.  outputFolder: pass full path of output folder
+5.  logLevel    : 1 or 2 
+6.  tempDir     : temporary directory
+7.  innerDepth  : Number of levels jdec shud traverse in inner class heirarchy to decompile inner classes
+8.  jar         : pass the full path of archive file like jar file , zip file
+9.  input       : pass the full path of class file
+10. option      : which task shud jdec run 
+                 
+    a>vcp:  Constant Pool
+    b>disassemble , dis : Disassemble
+    c>dc:  decompile
+    d>dc_nocode : Skeleton output
+    e>help:  show help
+    f>llv: list local variables
+   
+Example:
+
+For decompiling a jar for example from console:
+
+1> java -cp .;jdec.jar net.sf.jdec.main.ConsoleLauncher -jar <path of jar>  -outputFolder <path of output folder>
+
+2> java -cp .;jdec.jar net.sf.jdec.main.ConsoleLauncher -option dc -input <path of class>  -outputFolder <path of output folder>  -showImports true
+
+

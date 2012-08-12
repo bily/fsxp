@@ -1,0 +1,248 @@
+<html><head><title>JAVA PACKAGES</title></head><body><a name="top"><h1>JAVA PACKAGES</h1></a>
+
+<hr>
+<h2>Contents</h2>
+<ul>
+  <li> <a href="#overview">Overview</a>
+  </li><li> <a href="#examples">Examples</a>
+  </li><li> <a href="#finding">How the Java Compiler Finds Files</a>
+  </li><li> <a href="#classpath">The CLASSPATH environment variable</a>
+</li></ul>
+<hr>
+
+
+
+<a name="overview">
+<h2>Overview</h2></a>
+<p>
+</p><ul>
+  <li> Every class is part of some <em>package</em>.
+  <p>
+  </p></li><li> All classes in a file are part of the same package.
+  <p>
+  </p></li><li> You can specify the package using a <em>package declaration</em>:
+    <ul>
+      package <i>name</i> ;
+    </ul>
+       as the first (non-comment) line in the file.
+  <p>
+  </p></li><li> Multiple files can specify the same package name.
+  <p>
+  </p></li><li> If no package is specified, the classes in the file go into a
+       special unnamed package (the same unnamed package for all files).
+  <p>
+  </p></li><li> If package <i>name</i> is specified, the file must be in a subdirectory
+       called <i>name</i> (i.e., the directory name must match the package
+       name).
+  <p>
+  </p></li><li> You can access public classes in another (named) package using:
+    <ul>
+      <i>package-name.class-name</i>
+    </ul>
+       You can access the public fields and methods of such classes using:
+    <ul>
+      <i>package-name.class-name.field-or-method-name</i>
+    </ul>
+      You can avoid having to include the <i>package-name</i> using:
+    <ul>
+      import <i>package-name</i>.*;
+    </ul>
+    or
+    <ul>
+      import <i>package-name.class-name</i>;
+    </ul>
+    at the beginning of the file (after the package declaration).
+    The former imports all of the classes in the package, and the second
+    imports just the named class.  You must still use:
+    <ul>
+      <i>class-name</i>
+    </ul>
+    to access the classes in the packages, and
+    <ul>
+      <i>class-name.field-or-method-name</i>
+    </ul>
+    to access the fields and methods of the class; the only thing you can
+    leave off is the package name.
+</li></ul>
+
+<a name="examples">
+<h2>Examples</h2></a>
+<p>
+Assume that you are working in a directory called Javadir, and that you
+create four files, whose contents are shown below.
+</p><pre><u>file 1</u>
+package ListPkg;
+public class List { ... }
+class ListNode {...}
+
+<u>file 2</u>
+package ListPkg;
+public class NoNextItemException { ... }
+
+<a name="file3">
+<u>file 3</u></a>
+public class Test { ... }
+class Utils { ... }
+
+<u>file 4</u>
+class Test2 { ... }
+</pre>
+
+Here are the directories and file names you must use:
+<ul>
+  <li> File 1 must be in a subdirectory named ListPkg, in a file named
+       List.java.
+  </li><li> File 2 must also be in the ListPkg subdirectory, in a file named
+       NoNextItemException.java.
+  </li><li> File 3 must be in a file named Test.java (in the Javadir directory).
+  </li><li> File 4 can be in any .java file (in the Javadir directory).
+</li></ul>
+
+<p>
+And here are the classes that can be accessed by the code in each file:
+</p><ul>
+  <li> Files 1 and 2:
+  <ul>
+    <li> The code in the first two files (ListPkg/List.java and
+         ListPkg/NoNextItemException.java) can access the classes
+         defined in the same package (List, ListNode, and NoNextItemException).
+         (No access was specified for those classes, so they get
+         the default, package access.)
+  
+    <p>
+    </p></li><li> The code in files 1 and 2 <em>cannot</em> access class Test, even
+         though it is a public class.  The problem is that Test is in an
+         unnamed package, so the code in the ListPkg package has no way to
+         import that package, or to name class Test.
+  
+    <p>
+    </p></li><li> The code in files 1 and 2 <em>cannot</em> access classes Utils and
+         Test2, because they have default (package) access, and are in a 
+         different package.
+  
+  </li></ul>
+  <p>
+  </p></li><li> Files 3 and 4:
+    <ul>
+      <li> The code in file 3 (Test.java) can access classes ListPkg.List,
+         ListPkg.NoNextItemException, Test, Utils, and Test2 (the first two
+         because they are public classes in a named package, and the last
+         three because they are in the same, unnamed package, and have either
+         public or package access).  Note however, that if the code in
+	 Test.java uses the class Test2, and that class is <em>not</em> in a
+	 file called Test2.java, then the file that contains class Test2
+	 must be compiled first, or else the class will not be found.
+  
+    <p>
+    </p></li><li> The code in file 4 (the file that contains class Test2) can access
+         the same classes as the code in file 3 (Test.java).
+  </li></ul>
+</li></ul>
+
+<p>
+Here's a summary of the example:
+<table border="1" cols="3" width="100%">
+<tbody><tr><td><em>File Contents  </em></td><td><em>Directory/FileName  </em></td><td><em>Can Access</em>
+</td></tr>
+
+<tr><td>
+<pre>package ListPkg;
+  public class List {...}
+  class ListNode {...}
+</pre>  </td><td>ListPkg/List.java  </td><td>List, ListNode, NoNextItemException
+</td></tr>
+
+<tr><td>
+<pre>package ListPkg;
+  public class NoNextItemException
+  {...}
+</pre>  </td><td>ListPkg/NoNextItemException.java  </td><td>List, ListNode, NoNextItemException
+</td></tr>
+
+<tr><td>
+<pre>public class Test {...}
+class Utils {...}
+</pre>  </td><td>Test.java  </td><td>ListPkg.List, ListPkg.NoNextItemException, Test, Utils, Test2
+</td></tr>
+
+<tr><td>
+<pre>class Test2 {...}
+</pre>  </td><td>any-name.java  </td><td>ListPkg.List, ListPkg.NoNextItemException, Test, Utils, Test2
+</td></tr>
+</tbody></table>
+
+</p><p>
+<a name="finding">
+<h2>How the Java Compiler Finds Files</h2></a>
+</p><p>
+When you compile a file that uses a class (or interface) that is not defined
+in the same file, the Java compiler uses
+</p><ul>
+  <li> the name of the class
+  </li><li> the names of imported packages (if any)
+  </li><li> the name of the current package
+</li></ul>
+to try to locate the class definition.  For example, assume that you are
+working in directory Javadir, which contains one file named Test.java:
+<ul><pre>import ListPkg.*;
+
+public class Test {
+    List L;
+    ... 
+}
+</pre></ul>
+Since List is not defined in Test.Java, and since there is no file
+List.java in the current directory, the compiler will look for List.java
+in the ListPkg subdirectory (since Test.java imports the ListPkg
+package).
+<p>
+Now suppose that the ListPkg subdirectory contains two files: List.java
+and ListNode.java, both part of the ListPkg package.  Also
+assume that List.java uses the ListNode class defined in ListNode.java.
+If you try to compile just List.java in the ListPkg subdirectory, you
+will get an error, because the compiler will try to find the file
+ListNode.java in a "ListPkg" subdirectory of the current directory,
+rather than looking in the current directory itself.
+</p><p>
+There are (at least) three ways to solve this problem:
+</p><ol>
+  <li>Always compile a package from the <em>parent</em> directory.
+      For example, compile List.java from Javadir, rather than from
+      Javadir/ListPkg; in the Javadir directory, type:
+      <ul>
+      javac ListPkg/List.java
+      </ul>
+  </li><li>Always compile <em>all</em> files in a package at the same time;
+      for example, in the directory Javadir/ListPkg type:
+      <ul>
+      javac *.java
+      </ul>
+  </li><li>Make a circular link from the package subdirectory to itself;
+      for example, in the directory Javadir/ListPkg type:
+      <ul>
+      ln -s . ListPkg
+      </ul>
+</li></ol>
+
+
+<p>
+<a name="classpath">
+<h2>The CLASSPATH Environment Variable</h2></a>
+
+</p><p>
+To use a package that is not in a subdirectory of the current
+directory (i.e., the directory in which you invoke javac), you must
+set the environment variable CLASSPATH to tell the java compiler where
+to look.
+
+</p><p>
+For example, if there were a List package in
+<i>/p/course/cs368-horwitz/public/ListPkg</i>,
+you would set CLASSPATH like this:
+</p><pre>  setenv CLASSPATH .:/p/course/cs368-horwitz/public
+</pre>
+Including the dot and the colon before the directory tells the compiler
+also to look in the directory in which the compile is being done.
+Note that you should set the CLASSPATH variable to the <em>parent</em>
+of the "ListPkg" subdirectory, not to the ListPkg subdirectory itself.
+</body></html>

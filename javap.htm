@@ -1,0 +1,323 @@
+<html><head><title>javap - The Java Class File Disassembler</title>
+
+
+
+
+<meta name="collection" content="reference"></head><body bgcolor="#ffffff">
+
+
+
+<h1>javap - The Java Class File Disassembler</h1>
+
+<blockquote>
+
+Disassembles class files.
+
+</blockquote>
+
+
+
+<h2>SYNOPSIS</h2>
+
+<pre>   javap [ <a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/javap.html#Options">options</a> ] class. . .
+</pre>
+
+
+<h2>DESCRIPTION</h2>
+
+<blockquote>
+
+The <b>javap</b> command disassembles a class file. Its output depends on 
+the options used. If no options are used, <b>javap</b> prints out the package, 
+protected, and public fields and methods of the classes passed to it. 
+<b>javap</b> prints its output to stdout. For example, compile the 
+following class declaration:
+
+<pre>   import java.awt.*;
+   import java.applet.*;
+
+   public class DocFooter extends Applet {
+        String date;
+        String email;
+
+        public void init() {
+                resize(500,100);
+                date = getParameter("LAST_UPDATED");
+                email = getParameter("EMAIL");
+        }
+
+        public void paint(Graphics g) {
+                g.drawString(date + " by ",100, 15);
+                g.drawString(email,290,15);
+        }
+   }
+</pre>
+The output from <b>javap DocFooter</b> yields:
+
+<blockquote>
+<pre>Compiled from DocFooter.java
+public class DocFooter extends java.applet.Applet {
+    java.lang.String date;
+    java.lang.String email;
+    public DocFooter();
+    public void init();
+    public void paint(java.awt.Graphics);
+}
+</pre>
+</blockquote>
+
+The output from <b>javap -c DocFooter</b> yields:
+<blockquote>
+<pre>Compiled from DocFooter.java
+public class DocFooter extends java.applet.Applet {
+    java.lang.String date;
+    java.lang.String email;
+    public DocFooter();
+    public void init();
+    public void paint(java.awt.Graphics);
+}
+
+Method DocFooter()
+   0 aload_0
+   1 invokespecial #1 <method java.applet.applet()="">
+   4 return
+
+Method void init()
+   0 aload_0
+   1 sipush 500
+   4 bipush 100
+   6 invokevirtual #2 <method void="" resize(int,="" int)="">
+   9 aload_0
+  10 aload_0
+  11 ldc #3 <string last_updated="">
+  13 invokevirtual #4 <method java.lang.string="" getparameter(java.lang.string)="">
+  16 putfield #5 <field java.lang.string="" date="">
+  19 aload_0
+  20 aload_0
+  21 ldc #6 <string email="">
+  23 invokevirtual #4 <method java.lang.string="" getparameter(java.lang.string)="">
+  26 putfield #7 <field java.lang.string="" email="">
+  29 return
+
+Method void paint(java.awt.Graphics)
+   0 aload_1
+   1 new #8 <class java.lang.stringbuffer="">
+   4 dup
+   5 invokespecial #9 <method java.lang.stringbuffer()="">
+   8 aload_0
+   9 getfield #5 <field java.lang.string="" date="">
+  12 invokevirtual #10 <method java.lang.stringbuffer="" append(java.lang.string)="">
+  15 ldc #11 <string by="">
+  17 invokevirtual #10 <method java.lang.stringbuffer="" append(java.lang.string)="">
+  20 invokevirtual #12 <method java.lang.string="" tostring()="">
+  23 bipush 100
+  25 bipush 15
+  27 invokevirtual #13 <method void="" drawstring(java.lang.string,="" int,="" int)="">
+  30 aload_1
+  31 aload_0
+  32 getfield #7 <field java.lang.string="" email="">
+  35 sipush 290
+  38 bipush 15
+  40 invokevirtual #13 <method void="" drawstring(java.lang.string,="" int,="" int)="">
+  43 return
+</method></field></method></method></method></string></method></field></method></class></field></method></string></field></method></string></method></method></pre>
+</blockquote>
+
+
+<a name="Options">
+
+<h2>OPTIONS</h2>
+
+</a>
+
+<blockquote>
+
+<dl>
+
+<dt><b>-help</b>
+</dt><dd>
+Prints out help message for <b>javap</b>.
+<p>
+
+
+</p></dd><dt><b>-l</b>
+
+</dt><dd>
+
+Prints out line and local variable tables.
+
+<p>
+
+
+
+</p></dd><dt><b>-b</b>
+
+</dt><dd>
+
+Ensures backward compatibility with <b>javap</b> in JDK 1.1.
+
+<p>
+
+
+
+</p></dd><dt><b>-public</b>
+
+</dt><dd>
+
+Shows only public classes and members.
+
+<p>
+
+
+
+</p></dd><dt><b>-protected</b>
+
+</dt><dd>
+
+Shows only protected and public classes and members.
+
+<p>
+
+
+
+</p></dd><dt><b>-package</b>
+
+</dt><dd>
+
+Shows only package, protected, and public classes and members.  This is the 
+default.
+
+<p>
+
+
+
+</p></dd><dt><b>-private</b>
+
+</dt><dd>
+
+Shows all classes and members.
+
+<p>
+
+
+
+</p></dd><dt><b>-J<i>flag</i></b>
+
+</dt><dd>
+
+Pass <i>flag</i> directly to the runtime system. Some examples:
+<blockquote><pre>javap -J-version
+javap -J-Djava.security.manager -J-Djava.security.policy=MyPolicy MyClassName
+</pre></blockquote>
+
+
+
+<p>
+
+
+
+</p></dd><dt><b>-s</b>
+
+</dt><dd>
+Prints internal type signatures.
+
+
+<p>
+
+</p></dd><dt><b>-c</b>
+</dt><dd>
+Prints out disassembled code, i.e., the instructions that comprise the 
+Java bytecodes, for each of the methods in the class.   These are documented
+in the <a href="http://java.sun.com/docs/books/vmspec/">Java Virtual Machine
+Specification</a>.
+<p>
+</p></dd><dt><b>-verbose</b>
+</dt><dd>
+Prints stack size, number of <code>locals</code> and <code>args</code> for 
+methods.
+<p>
+</p><p>
+</p></dd><dt><b>-classpath <i>path</i></b>
+</dt><dd>
+Specifies the path <b>javap</b> uses to look up classes. Overrides the default 
+or the CLASSPATH environment variable if it is set. Directories are 
+separated by 
+semi-colons. Thus the general format for <i>path</i> is:
+<p>
+
+</p><pre>   .;&lt;your_path&gt;
+</pre>
+For example:
+
+<pre>   .;C:\usrs\dac\classes;C:\tools\java\classes
+</pre>
+
+</dd><dt><b>-bootclasspath <i>path</i></b>
+</dt><dd>
+Specifies path from which to load bootstrap classes.  By default, 
+the bootstrap classes are the classes implementing the core Java 
+platform located in <tt>jre\lib\rt.jar</tt> and several other 
+jar files.
+<p>
+</p></dd><dt><b>-extdirs <i>dirs</i></b>
+</dt><dd>
+Overrides location at which installed extensions are searched for. 
+The default location for extensions is <tt>jre\lib\ext</tt>.
+<p>
+
+
+
+</p></dd></dl>
+
+</blockquote>
+
+<h2>ENVIRONMENT VARIABLES</h2>
+<blockquote>
+
+<dl>
+
+<dt>CLASSPATH
+
+</dt><dd>Used to provide the system a path to user-defined classes. Directories are
+separated by semi-colons, for example,
+For example:
+
+<pre>   .;C:\usrs\dac\classes;C:\tools\java\classes
+</pre>
+</dd></dl>
+
+</blockquote>
+
+
+
+<h2>SEE ALSO</h2>
+
+<blockquote>
+<a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/javac.html">javac</a>,
+<a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/java.html">java</a>,
+<a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/jdb.html">jdb</a>,
+<a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/javah.html">javah</a>
+</blockquote>
+</blockquote>
+<hr noshade="noshade" size="3">
+<table summary="layout" border="0" width="100%">
+<tbody><tr valign="top">
+<td>
+<p><font size="-2">
+  <a href="http://java.sun.com/j2se/1.4.2/docs/relnotes/SMICopyright.html">Copyright</a> © 2002
+  <a href="http://www.sun.com/">Sun Microsystems, Inc.</a>
+  All Rights Reserved.</font></p>
+</td>
+<td align="right">
+  <img src="javap_files/sunlogo64x30.gif" alt="Sun" border="0" height="30" width="64">
+  <br>
+  <font size="+1">
+  <i>Java Software</i>
+  </font>
+</td>
+</tr>
+</tbody></table>
+
+
+
+<script language="JavaScript" src="javap_files/s_code_remote.js"></script><img src="javap_files/s87680936532747.htm" name="s_i_sunglobal" alt="" border="0" height="1" width="1"></body></html>
